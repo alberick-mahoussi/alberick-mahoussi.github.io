@@ -1,13 +1,17 @@
-
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Alberick Mahoussi — Blue Team Analyst</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Syne:wght@400;500;700;800&display=swap" rel="stylesheet">
 <style>
-  @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Syne:wght@400;500;700;800&display=swap');
-
   :root {
     --bg: #0a0e1a;
     --surface: #0f1526;
     --border: #1e2a45;
     --accent: #00d4ff;
-    --accent2: #7c3aed;
     --green: #00ff9d;
     --red: #ff4757;
     --text: #e2e8f0;
@@ -15,615 +19,531 @@
     --mono: 'JetBrains Mono', monospace;
     --sans: 'Syne', sans-serif;
   }
-
-  * { box-sizing: border-box; margin: 0; padding: 0; }
-
-  .portfolio {
-    background: var(--bg);
-    color: var(--text);
-    font-family: var(--sans);
-    min-height: 100vh;
-    padding: 0;
-    position: relative;
-    overflow: hidden;
-  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body { background: var(--bg); color: var(--text); font-family: var(--sans); overflow-x: hidden; }
 
   .grid-bg {
-    position: absolute; inset: 0; pointer-events: none;
-    background-image:
-      linear-gradient(rgba(0,212,255,0.03) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(0,212,255,0.03) 1px, transparent 1px);
+    position: fixed; inset: 0; pointer-events: none; z-index: 0;
+    background-image: linear-gradient(rgba(0,212,255,0.03) 1px,transparent 1px),linear-gradient(90deg,rgba(0,212,255,0.03) 1px,transparent 1px);
     background-size: 40px 40px;
   }
-
   .scan-line {
-    position: absolute; inset: 0; pointer-events: none; z-index: 1;
-    background: repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(0,212,255,0.015) 2px, rgba(0,212,255,0.015) 4px);
+    position: fixed; inset: 0; pointer-events: none; z-index: 0;
+    background: repeating-linear-gradient(0deg,transparent,transparent 2px,rgba(0,212,255,0.012) 2px,rgba(0,212,255,0.012) 4px);
   }
-
   .content { position: relative; z-index: 2; }
 
   /* NAV */
-  .nav {
+  nav {
     display: flex; align-items: center; justify-content: space-between;
-    padding: 1.5rem 2rem;
-    border-bottom: 1px solid var(--border);
-    background: rgba(10,14,26,0.9);
-    backdrop-filter: blur(8px);
+    padding: 1.25rem 2rem; border-bottom: 1px solid var(--border);
+    background: rgba(10,14,26,0.95); backdrop-filter: blur(12px);
     position: sticky; top: 0; z-index: 100;
   }
-
-  .nav-logo {
-    font-family: var(--mono);
-    font-size: 14px;
-    color: var(--accent);
-    display: flex; align-items: center; gap: 8px;
-  }
-
-  .nav-logo .cursor {
-    display: inline-block; width: 8px; height: 14px;
-    background: var(--accent);
-    animation: blink 1s step-end infinite;
-  }
-
+  .nav-logo { font-family: var(--mono); font-size: 13px; color: var(--accent); display: flex; align-items: center; gap: 6px; text-decoration: none; }
+  .cursor { display: inline-block; width: 8px; height: 14px; background: var(--accent); animation: blink 1s step-end infinite; vertical-align: middle; }
   @keyframes blink { 50% { opacity: 0; } }
-
-  .nav-links { display: flex; gap: 2rem; }
-  .nav-links a {
-    font-family: var(--mono); font-size: 12px; color: var(--muted);
-    text-decoration: none; letter-spacing: 0.1em;
-    transition: color 0.2s;
-  }
+  .nav-links { display: flex; gap: 1.5rem; align-items: center; flex-wrap: wrap; }
+  .nav-links a { font-family: var(--mono); font-size: 11px; color: var(--muted); text-decoration: none; letter-spacing: 0.08em; transition: color 0.2s; }
   .nav-links a:hover { color: var(--accent); }
+  .nav-btn {
+    font-family: var(--mono); font-size: 11px; padding: 5px 12px; border-radius: 4px;
+    border: 1px solid; text-decoration: none; display: inline-flex; align-items: center; gap: 5px; transition: background 0.2s;
+  }
+  .nav-li { border-color: rgba(10,102,194,0.4); color: #5b9bd5; }
+  .nav-li:hover { background: rgba(10,102,194,0.1); color: #5b9bd5; }
+  .nav-gh { border-color: rgba(0,212,255,0.3); color: var(--accent); }
+  .nav-gh:hover { background: rgba(0,212,255,0.08); color: var(--accent); }
 
-  /* STATUS BAR */
+  /* STATUS */
   .status-bar {
-    display: flex; align-items: center; gap: 1.5rem;
-    padding: 0.5rem 2rem;
-    background: rgba(0,212,255,0.05);
-    border-bottom: 1px solid var(--border);
-    font-family: var(--mono); font-size: 11px; color: var(--muted);
+    display: flex; align-items: center; gap: 1.5rem; flex-wrap: wrap;
+    padding: 0.4rem 2rem; background: rgba(0,212,255,0.04);
+    border-bottom: 1px solid var(--border); font-family: var(--mono); font-size: 11px; color: var(--muted);
   }
-
-  .status-dot {
-    width: 6px; height: 6px; border-radius: 50%;
-    background: var(--green);
-    box-shadow: 0 0 6px var(--green);
-    animation: pulse 2s ease-in-out infinite;
-    display: inline-block;
-  }
-
+  .status-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--green); box-shadow: 0 0 6px var(--green); animation: pulse 2s ease-in-out infinite; display: inline-block; }
   @keyframes pulse { 0%,100% { opacity: 1; } 50% { opacity: 0.4; } }
 
   /* HERO */
-  .hero {
-    padding: 5rem 2rem 4rem;
-    max-width: 900px; margin: 0 auto;
-  }
-
+  .hero { padding: 5rem 2rem 4rem; max-width: 960px; margin: 0 auto; }
   .hero-tag {
-    display: inline-flex; align-items: center; gap: 6px;
-    font-family: var(--mono); font-size: 11px;
-    color: var(--accent); background: rgba(0,212,255,0.08);
-    border: 1px solid rgba(0,212,255,0.2);
-    padding: 4px 12px; border-radius: 4px;
-    margin-bottom: 1.5rem; letter-spacing: 0.1em;
+    display: inline-flex; align-items: center; gap: 8px;
+    font-family: var(--mono); font-size: 11px; color: var(--accent);
+    background: rgba(0,212,255,0.08); border: 1px solid rgba(0,212,255,0.2);
+    padding: 4px 14px; border-radius: 4px; margin-bottom: 1.5rem; letter-spacing: 0.1em;
   }
-
-  .hero-name {
-    font-family: var(--sans); font-size: clamp(2.5rem, 6vw, 4rem);
-    font-weight: 800; line-height: 1.05;
-    color: var(--text);
-    margin-bottom: 0.5rem;
+  h1 { font-family: var(--sans); font-size: clamp(2.5rem,6vw,4rem); font-weight: 800; line-height: 1.05; color: var(--text); margin-bottom: 0.5rem; }
+  h1 span { color: var(--accent); }
+  .hero-title { font-family: var(--mono); font-size: 15px; color: var(--muted); margin-bottom: 1.5rem; }
+  .hero-title::before { content: '$ '; color: var(--green); }
+  .hero-desc { font-size: 15px; color: var(--muted); line-height: 1.75; max-width: 620px; margin-bottom: 2rem; }
+  .badge-row { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 2.5rem; }
+  .badge {
+    font-family: var(--mono); font-size: 11px; padding: 4px 12px; border-radius: 4px;
+    border: 1px solid; display: inline-flex; align-items: center; gap: 6px;
   }
-
-  .hero-name span { color: var(--accent); }
-
-  .hero-title {
-    font-family: var(--mono); font-size: 18px;
-    color: var(--muted); margin-bottom: 1.5rem;
-    display: flex; align-items: center; gap: 8px;
-  }
-
-  .hero-title::before {
-    content: '$ '; color: var(--green); font-size: 14px;
-  }
-
-  .hero-desc {
-    font-size: 16px; color: var(--muted); line-height: 1.7;
-    max-width: 600px; margin-bottom: 2.5rem;
-  }
-
+  .b-purple { border-color: rgba(124,58,237,0.4); color: #a78bfa; background: rgba(124,58,237,0.08); }
+  .b-blue   { border-color: rgba(0,212,255,0.4);  color: #67e8f9; background: rgba(0,212,255,0.08); }
+  .b-green  { border-color: rgba(0,255,157,0.3);  color: #6ee7b7; background: rgba(0,255,157,0.06); }
   .hero-ctas { display: flex; gap: 1rem; flex-wrap: wrap; }
-
   .btn {
-    font-family: var(--mono); font-size: 13px; letter-spacing: 0.05em;
-    padding: 10px 24px; border-radius: 4px; cursor: pointer;
+    font-family: var(--mono); font-size: 13px; letter-spacing: 0.04em;
+    padding: 10px 22px; border-radius: 4px; cursor: pointer;
     transition: all 0.2s; text-decoration: none; display: inline-flex; align-items: center; gap: 8px;
   }
-
-  .btn-primary {
-    background: var(--accent); color: var(--bg); border: none; font-weight: 700;
-  }
-
+  .btn-primary { background: var(--accent); color: var(--bg); border: none; font-weight: 700; }
   .btn-primary:hover { background: #00b8d9; transform: translateY(-1px); }
-
-  .btn-ghost {
-    background: transparent; color: var(--text);
-    border: 1px solid var(--border);
-  }
-
+  .btn-ghost { background: transparent; color: var(--text); border: 1px solid var(--border); }
   .btn-ghost:hover { border-color: var(--accent); color: var(--accent); }
+  .btn-linkedin { background: transparent; color: #5b9bd5; border: 1px solid rgba(10,102,194,0.35); }
+  .btn-linkedin:hover { background: rgba(10,102,194,0.1); transform: translateY(-1px); }
 
   /* SECTION */
-  .section {
-    max-width: 900px; margin: 0 auto;
-    padding: 3rem 2rem;
-    border-top: 1px solid var(--border);
-  }
+  section { max-width: 960px; margin: 0 auto; padding: 3rem 2rem; border-top: 1px solid var(--border); }
+  .section-header { display: flex; align-items: center; gap: 12px; margin-bottom: 2rem; }
+  .section-num { font-family: var(--mono); font-size: 12px; color: var(--accent); background: rgba(0,212,255,0.1); border: 1px solid rgba(0,212,255,0.2); padding: 2px 8px; border-radius: 4px; }
+  .section-title { font-family: var(--sans); font-size: 20px; font-weight: 700; color: var(--text); }
+  .section-line { flex: 1; height: 1px; background: var(--border); }
 
-  .section-header {
-    display: flex; align-items: center; gap: 12px;
-    margin-bottom: 2rem;
-  }
+  /* SKILLS */
+  .skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(195px,1fr)); gap: 12px; }
+  .skill-card { background: var(--surface); border: 1px solid var(--border); border-radius: 6px; padding: 1rem 1.2rem; transition: border-color 0.2s, transform 0.2s; }
+  .skill-card:hover { border-color: var(--accent); transform: translateY(-2px); }
+  .skill-card-header { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; }
+  .skill-icon { width: 30px; height: 30px; border-radius: 6px; display: flex; align-items: center; justify-content: center; font-size: 15px; flex-shrink: 0; }
+  .skill-label { font-size: 13px; font-weight: 500; color: var(--text); }
+  .tags { display: flex; flex-wrap: wrap; gap: 5px; }
+  .tag { font-family: var(--mono); font-size: 10px; padding: 2px 7px; border-radius: 3px; letter-spacing: 0.04em; }
+  .t-blue   { background: rgba(0,212,255,0.1);   color: #67e8f9; }
+  .t-purple { background: rgba(124,58,237,0.15); color: #a78bfa; }
+  .t-green  { background: rgba(0,255,157,0.1);   color: #6ee7b7; }
+  .t-red    { background: rgba(255,71,87,0.1);   color: #fca5a5; }
+  .t-gray   { background: rgba(255,255,255,0.05); color: var(--muted); }
 
-  .section-num {
-    font-family: var(--mono); font-size: 12px; color: var(--accent);
-    background: rgba(0,212,255,0.1); border: 1px solid rgba(0,212,255,0.2);
-    padding: 2px 8px; border-radius: 4px;
-  }
-
-  .section-title {
-    font-family: var(--sans); font-size: 20px; font-weight: 700; color: var(--text);
-  }
-
-  .section-line {
-    flex: 1; height: 1px; background: var(--border);
-  }
-
-  /* SKILLS GRID */
-  .skills-grid {
-    display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 12px;
-  }
-
-  .skill-card {
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: 6px;
-    padding: 1rem 1.25rem;
+  /* CERTIFICATIONS */
+  .certs-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px,1fr)); gap: 14px; }
+  .cert-card {
+    background: var(--surface); border: 1px solid var(--border); border-radius: 8px;
+    padding: 1.25rem 1.5rem; display: flex; align-items: flex-start; gap: 14px;
     transition: border-color 0.2s, transform 0.2s;
   }
-
-  .skill-card:hover { border-color: var(--accent); transform: translateY(-2px); }
-
-  .skill-card-header {
-    display: flex; align-items: center; gap: 10px; margin-bottom: 8px;
+  .cert-card:hover { border-color: var(--accent); transform: translateY(-2px); }
+  .cert-logo {
+    width: 42px; height: 42px; border-radius: 8px; flex-shrink: 0;
+    display: flex; align-items: center; justify-content: center; font-size: 18px; font-weight: 800; font-family: var(--mono);
   }
-
-  .skill-icon {
-    width: 32px; height: 32px; border-radius: 6px;
-    display: flex; align-items: center; justify-content: center;
-    font-size: 14px;
+  .cert-logo.thm  { background: rgba(162,56,33,0.2); color: #ef4444; border: 1px solid rgba(162,56,33,0.4); }
+  .cert-logo.htb  { background: rgba(0,255,157,0.1); color: var(--green); border: 1px solid rgba(0,255,157,0.3); }
+  .cert-logo.iso  { background: rgba(0,212,255,0.1); color: var(--accent); border: 1px solid rgba(0,212,255,0.3); }
+  .cert-name { font-size: 14px; font-weight: 600; color: var(--text); margin-bottom: 4px; line-height: 1.3; }
+  .cert-issuer { font-family: var(--mono); font-size: 11px; color: var(--muted); }
+  .cert-status {
+    display: inline-flex; align-items: center; gap: 5px;
+    font-family: var(--mono); font-size: 10px; margin-top: 6px;
+    padding: 2px 8px; border-radius: 3px; border: 1px solid;
   }
-
-  .skill-label {
-    font-size: 14px; font-weight: 500; color: var(--text);
-  }
-
-  .skill-tags { display: flex; flex-wrap: wrap; gap: 6px; }
-
-  .tag {
-    font-family: var(--mono); font-size: 10px;
-    padding: 2px 8px; border-radius: 3px;
-    background: rgba(255,255,255,0.05);
-    color: var(--muted); letter-spacing: 0.05em;
-  }
-
-  .tag-blue { background: rgba(0,212,255,0.1); color: #67e8f9; }
-  .tag-purple { background: rgba(124,58,237,0.15); color: #a78bfa; }
-  .tag-green { background: rgba(0,255,157,0.1); color: #6ee7b7; }
-  .tag-red { background: rgba(255,71,87,0.1); color: #fca5a5; }
+  .status-done { border-color: rgba(0,255,157,0.3); color: #6ee7b7; background: rgba(0,255,157,0.06); }
+  .status-wip  { border-color: rgba(251,191,36,0.3); color: #fcd34d; background: rgba(251,191,36,0.06); }
 
   /* PROJECTS */
-  .projects-grid {
-    display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-    gap: 16px;
-  }
-
+  .projects-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px,1fr)); gap: 16px; }
   .project-card {
     background: var(--surface); border: 1px solid var(--border); border-radius: 6px;
-    padding: 1.5rem; cursor: pointer;
+    padding: 1.5rem; position: relative; overflow: hidden; display: flex; flex-direction: column;
     transition: border-color 0.2s, transform 0.2s;
-    position: relative; overflow: hidden;
   }
-
-  .project-card::before {
-    content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px;
-    background: var(--accent); transform: scaleX(0); transform-origin: left;
-    transition: transform 0.3s;
-  }
-
+  .project-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px; background: var(--accent); transform: scaleX(0); transform-origin: left; transition: transform 0.3s; }
   .project-card:hover { border-color: var(--accent); transform: translateY(-2px); }
   .project-card:hover::before { transform: scaleX(1); }
-
-  .project-type {
-    font-family: var(--mono); font-size: 10px; color: var(--accent);
-    letter-spacing: 0.15em; text-transform: uppercase; margin-bottom: 8px;
+  .project-type { font-family: var(--mono); font-size: 10px; color: var(--accent); letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 8px; }
+  .project-name { font-size: 15px; font-weight: 600; color: var(--text); margin-bottom: 8px; line-height: 1.3; }
+  .project-desc { font-size: 13px; color: var(--muted); line-height: 1.65; margin-bottom: 1.25rem; flex: 1; }
+  .project-footer { display: flex; align-items: center; justify-content: space-between; gap: 8px; flex-wrap: wrap; }
+  .stack { display: flex; gap: 5px; flex-wrap: wrap; }
+  .chip { font-family: var(--mono); font-size: 10px; background: rgba(255,255,255,0.05); color: var(--muted); padding: 2px 8px; border-radius: 3px; }
+  .repo-link {
+    font-family: var(--mono); font-size: 11px; color: var(--accent); text-decoration: none;
+    border: 1px solid rgba(0,212,255,0.3); padding: 4px 12px; border-radius: 3px;
+    display: inline-flex; align-items: center; gap: 5px; transition: background 0.2s; white-space: nowrap;
   }
-
-  .project-name {
-    font-size: 16px; font-weight: 600; color: var(--text); margin-bottom: 8px;
-  }
-
-  .project-desc {
-    font-size: 13px; color: var(--muted); line-height: 1.6; margin-bottom: 16px;
-  }
-
-  .project-footer {
-    display: flex; align-items: center; justify-content: space-between;
-  }
-
-  .project-stack { display: flex; gap: 6px; flex-wrap: wrap; }
-
-  .stack-chip {
-    font-family: var(--mono); font-size: 10px;
-    background: rgba(255,255,255,0.05); color: var(--muted);
-    padding: 2px 8px; border-radius: 3px;
-  }
+  .repo-link:hover { background: rgba(0,212,255,0.1); }
 
   /* TERMINAL */
-  .terminal {
-    background: #05080f; border: 1px solid var(--border);
-    border-radius: 8px; overflow: hidden; margin-top: 0;
-  }
-
-  .terminal-bar {
-    background: #0d1117; padding: 10px 16px;
-    display: flex; align-items: center; gap: 8px;
-    border-bottom: 1px solid var(--border);
-  }
-
+  .terminal { background: #05080f; border: 1px solid var(--border); border-radius: 8px; overflow: hidden; }
+  .terminal-bar { background: #0d1117; padding: 10px 16px; display: flex; align-items: center; gap: 8px; border-bottom: 1px solid var(--border); }
   .dot { width: 10px; height: 10px; border-radius: 50%; }
-  .dot-red { background: var(--red); }
-  .dot-yellow { background: #fbbf24; }
-  .dot-green { background: var(--green); }
+  .dr { background: var(--red); } .dy { background: #fbbf24; } .dg { background: var(--green); }
+  .terminal-title { margin-left: 8px; font-family: var(--mono); font-size: 11px; color: var(--muted); flex: 1; text-align: center; }
+  .terminal-body { padding: 1.5rem; font-family: var(--mono); font-size: 12px; line-height: 2; }
+  .tl { display: block; }
+  .tp { color: var(--green); } .tk { color: var(--accent); } .tv { color: var(--green); } .to { color: var(--muted); }
 
-  .terminal-title {
-    margin-left: 8px; font-family: var(--mono); font-size: 11px;
-    color: var(--muted); flex: 1; text-align: center;
-  }
-
-  .terminal-body {
-    padding: 1.5rem; font-family: var(--mono); font-size: 12px;
-    line-height: 1.8;
-  }
-
-  .t-prompt { color: var(--green); }
-  .t-cmd { color: var(--text); }
-  .t-out { color: var(--muted); }
-  .t-key { color: var(--accent); }
-  .t-val { color: var(--green); }
-  .t-comment { color: #374151; }
-  .t-line { display: block; }
-
-  /* CONTACT */
-  .contact-grid {
-    display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 12px;
-  }
-
-  .contact-card {
+  /* PLATFORMS */
+  .platforms-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px,1fr)); gap: 12px; }
+  .platform-card {
     background: var(--surface); border: 1px solid var(--border); border-radius: 6px;
     padding: 1rem 1.25rem; display: flex; align-items: center; gap: 12px;
-    transition: border-color 0.2s;
+    text-decoration: none; transition: border-color 0.2s, transform 0.2s;
   }
+  .platform-card:hover { transform: translateY(-2px); }
+  .platform-card.thm:hover { border-color: #ef4444; }
+  .platform-card.htb:hover { border-color: var(--green); }
+  .platform-card.rootme:hover { border-color: #f97316; }
+  .platform-icon { width: 38px; height: 38px; border-radius: 6px; display: flex; align-items: center; justify-content: center; font-size: 14px; font-weight: 800; font-family: var(--mono); flex-shrink: 0; }
+  .pi-thm   { background: rgba(162,56,33,0.15); border: 1px solid rgba(162,56,33,0.3); color: #ef4444; }
+  .pi-htb   { background: rgba(0,255,157,0.08); border: 1px solid rgba(0,255,157,0.25); color: var(--green); }
+  .pi-rootme { background: rgba(249,115,22,0.1); border: 1px solid rgba(249,115,22,0.3); color: #f97316; }
+  .pi-gh    { background: rgba(0,212,255,0.08); border: 1px solid rgba(0,212,255,0.2); color: var(--accent); }
+  .pi-li    { background: rgba(10,102,194,0.12); border: 1px solid rgba(10,102,194,0.3); color: #5b9bd5; }
+  .pi-mail  { background: rgba(0,212,255,0.08); border: 1px solid rgba(0,212,255,0.2); color: var(--accent); }
+  .p-label { font-family: var(--mono); font-size: 10px; color: var(--muted); margin-bottom: 2px; }
+  .p-value { font-size: 13px; color: var(--text); font-weight: 500; }
 
-  .contact-card:hover { border-color: var(--accent); }
+  footer { text-align: center; padding: 2rem; border-top: 1px solid var(--border); font-family: var(--mono); font-size: 11px; color: var(--muted); }
+  footer span { color: var(--accent); }
 
-  .contact-icon {
-    width: 36px; height: 36px; border-radius: 6px;
-    background: rgba(0,212,255,0.1); border: 1px solid rgba(0,212,255,0.2);
-    display: flex; align-items: center; justify-content: center;
-    font-size: 16px; color: var(--accent); flex-shrink: 0;
-  }
-
-  .contact-label { font-size: 11px; color: var(--muted); font-family: var(--mono); }
-  .contact-value { font-size: 14px; color: var(--text); font-weight: 500; }
-
-  /* FOOTER */
-  .footer {
-    text-align: center; padding: 2rem;
-    border-top: 1px solid var(--border);
-    font-family: var(--mono); font-size: 11px; color: var(--muted);
-  }
-
-  .footer span { color: var(--accent); }
-
-  /* CERT BADGES */
-  .cert-row { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 0; }
-
-  .cert-badge {
-    font-family: var(--mono); font-size: 11px;
-    padding: 6px 14px; border-radius: 4px;
-    border: 1px solid;
-    display: flex; align-items: center; gap: 6px;
-  }
-
-  .cert-dev { border-color: rgba(124,58,237,0.4); color: #a78bfa; background: rgba(124,58,237,0.08); }
-  .cert-soc { border-color: rgba(0,212,255,0.4); color: #67e8f9; background: rgba(0,212,255,0.08); }
-  .cert-blue { border-color: rgba(0,255,157,0.3); color: #6ee7b7; background: rgba(0,255,157,0.06); }
+  /* SVG util */
+  .ico { display: inline-block; vertical-align: middle; }
 </style>
+</head>
+<body>
+<div class="grid-bg"></div>
+<div class="scan-line"></div>
+<div class="content">
 
-<div class="portfolio">
-  <div class="grid-bg"></div>
-  <div class="scan-line"></div>
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-logo">alberick@soc:~$&nbsp;<span class="cursor"></span></a>
+  <div class="nav-links">
+    <a href="#skills">./skills</a>
+    <a href="#certs">./certifications</a>
+    <a href="#projects">./projets</a>
+    <a href="#about">./whoami</a>
+    <a href="#contact">./contact</a>
+    <a href="https://linkedin.com/in/alberick-mahoussi" target="_blank" rel="noopener" class="nav-btn nav-li">
+      <svg class="ico" width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+      LinkedIn
+    </a>
+    <a href="https://github.com/alberick-mahoussi" target="_blank" rel="noopener" class="nav-btn nav-gh">
+      <svg class="ico" width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0 1 12 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/></svg>
+      GitHub
+    </a>
+  </div>
+</nav>
 
-  <div class="content">
+<!-- STATUS BAR -->
+<div class="status-bar">
+  <span><span class="status-dot"></span></span>
+  <span>SYSTEM ONLINE</span><span>|</span>
+  <span>THREAT LEVEL: MONITORED</span><span>|</span>
+  <span>SIEM: ACTIVE</span><span>|</span>
+  <span>INCIDENT RESPONSE: READY</span><span>|</span>
+  <span>CDSA: IN PROGRESS</span>
+</div>
 
-    <nav class="nav">
-      <div class="nav-logo">
-        <span>alberick@soc:~$</span>
-        <span class="cursor"></span>
+<!-- HERO -->
+<section class="hero" style="border-top:none;">
+  <div class="hero-tag"><span class="status-dot"></span> BLUE TEAM ANALYST &nbsp;·&nbsp; SOC &nbsp;·&nbsp; INCIDENT RESPONSE</div>
+  <h1>Alberick<br><span>Mahoussi</span></h1>
+  <p class="hero-title">Développeur → Spécialiste Cybersécurité Blue Team</p>
+  <p class="hero-desc">Parcours développeur reconverti en Blue Team. Analyse de menaces, réponse aux incidents, et hardening d'infrastructures. Je construis des défenses solides avec une vision d'architecte — là où le code rencontre la sécurité.</p>
+  <div class="badge-row">
+    <span class="badge b-purple">&#x2761; Dev Background</span>
+    <span class="badge b-blue">&#x25C9; SOC Analyst L1/L2</span>
+    <span class="badge b-green">&#x2713; Incident Response</span>
+    <span class="badge b-green">&#x25B6; Threat Hunting</span>
+    <span class="badge b-blue">&#x25A6; ISO/IEC 27001:2022</span>
+  </div>
+  <div class="hero-ctas">
+    <a href="#projects" class="btn btn-primary">Voir les projets</a>
+    <a href="https://github.com/alberick-mahoussi" target="_blank" rel="noopener" class="btn btn-ghost">
+      <svg class="ico" width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0 1 12 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/></svg>
+      GitHub
+    </a>
+    <a href="https://linkedin.com/in/alberick-mahoussi" target="_blank" rel="noopener" class="btn btn-linkedin">
+      <svg class="ico" width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+      LinkedIn
+    </a>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills">
+  <div class="section-header">
+    <span class="section-num">01</span>
+    <h2 class="section-title">Stack technique</h2>
+    <div class="section-line"></div>
+  </div>
+  <div class="skills-grid">
+    <div class="skill-card">
+      <div class="skill-card-header">
+        <div class="skill-icon" style="background:rgba(0,212,255,0.1);color:#00d4ff;">&#9685;</div>
+        <span class="skill-label">SIEM & Detection</span>
       </div>
-      <div class="nav-links">
-        <a href="#">./about</a>
-        <a href="#">./skills</a>
-        <a href="#">./projects</a>
-        <a href="#">./contact</a>
+      <div class="tags"><span class="tag t-blue">Splunk</span><span class="tag t-blue">Elastic SIEM</span><span class="tag t-blue">Wazuh</span></div>
+    </div>
+    <div class="skill-card">
+      <div class="skill-card-header">
+        <div class="skill-icon" style="background:rgba(0,255,157,0.1);color:#00ff9d;">&#9650;</div>
+        <span class="skill-label">Incident Response</span>
       </div>
-    </nav>
+      <div class="tags"><span class="tag t-green">TheHive</span><span class="tag t-green">Cortex</span><span class="tag t-green">MISP</span></div>
+    </div>
+    <div class="skill-card">
+      <div class="skill-card-header">
+        <div class="skill-icon" style="background:rgba(124,58,237,0.1);color:#a78bfa;">&#9654;</div>
+        <span class="skill-label">Dev & Scripting</span>
+      </div>
+      <div class="tags"><span class="tag t-purple">Python</span><span class="tag t-purple">Bash</span><span class="tag t-purple">PowerShell</span></div>
+    </div>
+    <div class="skill-card">
+      <div class="skill-card-header">
+        <div class="skill-icon" style="background:rgba(255,71,87,0.1);color:#ff4757;">&#9670;</div>
+        <span class="skill-label">Network & Forensic</span>
+      </div>
+      <div class="tags"><span class="tag t-red">Wireshark</span><span class="tag t-red">Zeek</span><span class="tag t-red">Suricata</span></div>
+    </div>
+    <div class="skill-card">
+      <div class="skill-card-header">
+        <div class="skill-icon" style="background:rgba(0,212,255,0.1);color:#00d4ff;">&#9632;</div>
+        <span class="skill-label">Threat Intelligence</span>
+      </div>
+      <div class="tags"><span class="tag t-blue">MITRE ATT&CK</span><span class="tag t-blue">OpenCTI</span><span class="tag t-blue">VirusTotal</span></div>
+    </div>
+    <div class="skill-card">
+      <div class="skill-card-header">
+        <div class="skill-icon" style="background:rgba(0,255,157,0.1);color:#00ff9d;">&#9728;</div>
+        <span class="skill-label">Cloud & Infra</span>
+      </div>
+      <div class="tags"><span class="tag t-green">AWS Security</span><span class="tag t-green">Docker</span><span class="tag t-green">Linux</span></div>
+    </div>
+    <div class="skill-card">
+      <div class="skill-card-header">
+        <div class="skill-icon" style="background:rgba(124,58,237,0.1);color:#a78bfa;">&#9633;</div>
+        <span class="skill-label">Active Directory</span>
+      </div>
+      <div class="tags"><span class="tag t-purple">Kerberos</span><span class="tag t-purple">GPO</span><span class="tag t-purple">LDAP</span></div>
+    </div>
+    <div class="skill-card">
+      <div class="skill-card-header">
+        <div class="skill-icon" style="background:rgba(255,71,87,0.1);color:#ff4757;">&#9675;</div>
+        <span class="skill-label">Web Security</span>
+      </div>
+      <div class="tags"><span class="tag t-red">OWASP</span><span class="tag t-red">Burp Suite</span><span class="tag t-red">SQLi/XSS</span></div>
+    </div>
+  </div>
+</section>
 
-    <div class="status-bar">
-      <span><span class="status-dot"></span></span>
-      <span>SYSTEM ONLINE</span>
-      <span>|</span>
-      <span>THREAT LEVEL: MONITORED</span>
-      <span>|</span>
-      <span>SIEM: ACTIVE</span>
-      <span>|</span>
-      <span>LAST INCIDENT RESPONSE: 0 BREACHES</span>
+<!-- CERTIFICATIONS -->
+<section id="certs">
+  <div class="section-header">
+    <span class="section-num">02</span>
+    <h2 class="section-title">Certifications & Formations</h2>
+    <div class="section-line"></div>
+  </div>
+  <div class="certs-grid">
+
+    <div class="cert-card">
+      <div class="cert-logo iso">ISO</div>
+      <div>
+        <div class="cert-name">ISO/IEC 27001:2022 Information Security Associate™</div>
+        <div class="cert-issuer">SkillFront</div>
+        <span class="cert-status status-done"><span class="status-dot"></span> Obtenu</span>
+      </div>
     </div>
 
-    <section class="hero">
-      <div class="hero-tag">
-        <span class="status-dot"></span>
-        BLUE TEAM ANALYST · SOC · INCIDENT RESPONSE
+    <div class="cert-card">
+      <div class="cert-logo thm">THM</div>
+      <div>
+        <div class="cert-name">SOC Level 1 Path</div>
+        <div class="cert-issuer">TryHackMe · @huen992</div>
+        <span class="cert-status status-done"><span class="status-dot"></span> Complété</span>
       </div>
-      <h1 class="hero-name">
-        Alberick<br><span>Mahoussi</span>
-      </h1>
-      <p class="hero-title">Développeur → Spécialiste Cybersécurité</p>
-      <p class="hero-desc">
-        Parcours développeur reconverti en Blue Team. Analyse de menaces, réponse aux incidents, et hardening d'infrastructures. Je construis des défenses solides avec une vision d'architecte.
-      </p>
+    </div>
 
-      <div class="cert-row" style="margin-bottom: 2rem;">
-        <span class="cert-badge cert-dev"><i class="ti ti-code" aria-hidden="true"></i> Dev Background</span>
-        <span class="cert-badge cert-soc"><i class="ti ti-radar" aria-hidden="true"></i> SOC Analyst</span>
-        <span class="cert-badge cert-blue"><i class="ti ti-shield-check" aria-hidden="true"></i> Incident Response</span>
-        <span class="cert-badge cert-blue"><i class="ti ti-activity" aria-hidden="true"></i> Threat Hunting</span>
+    <div class="cert-card">
+      <div class="cert-logo thm">THM</div>
+      <div>
+        <div class="cert-name">SOC Level 2 Path</div>
+        <div class="cert-issuer">TryHackMe · @huen992</div>
+        <span class="cert-status status-done"><span class="status-dot"></span> Complété</span>
       </div>
+    </div>
 
-      <div class="hero-ctas">
-        <button class="btn btn-primary" onclick="sendPrompt('Génère le code HTML complet et optimisé du portfolio de Alberick Mahoussi avec toutes les sections remplies')">
-          <i class="ti ti-download" aria-hidden="true"></i> Télécharger le code
-        </button>
-        <button class="btn btn-ghost" onclick="sendPrompt('Quels projets Blue Team mettre en avant dans un portfolio SOC analyste ?')">
-          <i class="ti ti-folder" aria-hidden="true"></i> Voir les projets ↗
-        </button>
+    <div class="cert-card">
+      <div class="cert-logo thm">THM</div>
+      <div>
+        <div class="cert-name">Jr Penetration Tester Certificate</div>
+        <div class="cert-issuer">TryHackMe · @huen992</div>
+        <span class="cert-status status-done"><span class="status-dot"></span> Obtenu</span>
       </div>
-    </section>
+    </div>
 
-    <section class="section">
-      <div class="section-header">
-        <span class="section-num">01</span>
-        <h2 class="section-title">Stack technique</h2>
-        <div class="section-line"></div>
+    <div class="cert-card">
+      <div class="cert-logo thm">THM</div>
+      <div>
+        <div class="cert-name">Web Fundamentals Certificate</div>
+        <div class="cert-issuer">TryHackMe · @huen992</div>
+        <span class="cert-status status-done"><span class="status-dot"></span> Obtenu</span>
       </div>
-      <div class="skills-grid">
-        <div class="skill-card">
-          <div class="skill-card-header">
-            <div class="skill-icon" style="background: rgba(0,212,255,0.1);">
-              <i class="ti ti-radar" style="color:#00d4ff;font-size:16px;" aria-hidden="true"></i>
-            </div>
-            <span class="skill-label">SIEM & Detection</span>
-          </div>
-          <div class="skill-tags">
-            <span class="tag tag-blue">Splunk</span>
-            <span class="tag tag-blue">Elastic SIEM</span>
-            <span class="tag tag-blue">Wazuh</span>
-          </div>
-        </div>
+    </div>
 
-        <div class="skill-card">
-          <div class="skill-card-header">
-            <div class="skill-icon" style="background: rgba(0,255,157,0.1);">
-              <i class="ti ti-activity" style="color:#00ff9d;font-size:16px;" aria-hidden="true"></i>
-            </div>
-            <span class="skill-label">Incident Response</span>
-          </div>
-          <div class="skill-tags">
-            <span class="tag tag-green">TheHive</span>
-            <span class="tag tag-green">Cortex</span>
-            <span class="tag tag-green">MISP</span>
-          </div>
-        </div>
-
-        <div class="skill-card">
-          <div class="skill-card-header">
-            <div class="skill-icon" style="background: rgba(124,58,237,0.1);">
-              <i class="ti ti-terminal" style="color:#a78bfa;font-size:16px;" aria-hidden="true"></i>
-            </div>
-            <span class="skill-label">Dev & Scripting</span>
-          </div>
-          <div class="skill-tags">
-            <span class="tag tag-purple">Python</span>
-            <span class="tag tag-purple">Bash</span>
-            <span class="tag tag-purple">PowerShell</span>
-          </div>
-        </div>
-
-        <div class="skill-card">
-          <div class="skill-card-header">
-            <div class="skill-icon" style="background: rgba(255,71,87,0.1);">
-              <i class="ti ti-network" style="color:#ff4757;font-size:16px;" aria-hidden="true"></i>
-            </div>
-            <span class="skill-label">Network & Forensic</span>
-          </div>
-          <div class="skill-tags">
-            <span class="tag tag-red">Wireshark</span>
-            <span class="tag tag-red">Zeek</span>
-            <span class="tag tag-red">Suricata</span>
-          </div>
-        </div>
-
-        <div class="skill-card">
-          <div class="skill-card-header">
-            <div class="skill-icon" style="background: rgba(0,212,255,0.1);">
-              <i class="ti ti-brand-github" style="color:#00d4ff;font-size:16px;" aria-hidden="true"></i>
-            </div>
-            <span class="skill-label">Threat Intel</span>
-          </div>
-          <div class="skill-tags">
-            <span class="tag tag-blue">MITRE ATT&CK</span>
-            <span class="tag tag-blue">OpenCTI</span>
-            <span class="tag tag-blue">VirusTotal</span>
-          </div>
-        </div>
-
-        <div class="skill-card">
-          <div class="skill-card-header">
-            <div class="skill-icon" style="background: rgba(0,255,157,0.1);">
-              <i class="ti ti-cloud" style="color:#00ff9d;font-size:16px;" aria-hidden="true"></i>
-            </div>
-            <span class="skill-label">Cloud & Infra</span>
-          </div>
-          <div class="skill-tags">
-            <span class="tag tag-green">AWS Security</span>
-            <span class="tag tag-green">Docker</span>
-            <span class="tag tag-green">Linux</span>
-          </div>
-        </div>
+    <div class="cert-card">
+      <div class="cert-logo htb">HTB</div>
+      <div>
+        <div class="cert-name">Certified Defensive Security Analyst (CDSA)</div>
+        <div class="cert-issuer">HackTheBox Academy</div>
+        <span class="cert-status status-wip">&#9679; En préparation</span>
       </div>
-    </section>
-
-    <section class="section">
-      <div class="section-header">
-        <span class="section-num">02</span>
-        <h2 class="section-title">Projets</h2>
-        <div class="section-line"></div>
-      </div>
-      <div class="projects-grid">
-        <div class="project-card">
-          <p class="project-type">SOC · Detection</p>
-          <p class="project-name">Home SOC Lab</p>
-          <p class="project-desc">Environnement SOC complet sur VM : Elastic SIEM + Wazuh agents + générateur d'alertes. Pipeline de détection end-to-end.</p>
-          <div class="project-footer">
-            <div class="project-stack">
-              <span class="stack-chip">Elastic</span>
-              <span class="stack-chip">Wazuh</span>
-              <span class="stack-chip">Linux</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="project-card">
-          <p class="project-type">Incident Response</p>
-          <p class="project-name">IR Playbooks</p>
-          <p class="project-desc">Collection de playbooks de réponse aux incidents : ransomware, phishing, C2. Automatisation partielle avec Python + TheHive API.</p>
-          <div class="project-footer">
-            <div class="project-stack">
-              <span class="stack-chip">Python</span>
-              <span class="stack-chip">TheHive</span>
-              <span class="stack-chip">MITRE</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="project-card">
-          <p class="project-type">Threat Hunting</p>
-          <p class="project-name">Log Analysis Toolkit</p>
-          <p class="project-desc">Scripts Python pour parsing de logs Windows/Linux. Détection d'anomalies comportementales, export de rapports automatisé.</p>
-          <div class="project-footer">
-            <div class="project-stack">
-              <span class="stack-chip">Python</span>
-              <span class="stack-chip">Splunk</span>
-              <span class="stack-chip">Sigma</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section">
-      <div class="section-header">
-        <span class="section-num">03</span>
-        <h2 class="section-title">Profil</h2>
-        <div class="section-line"></div>
-      </div>
-      <div class="terminal">
-        <div class="terminal-bar">
-          <span class="dot dot-red"></span>
-          <span class="dot dot-yellow"></span>
-          <span class="dot dot-green"></span>
-          <span class="terminal-title">alberick@portfolio: ~/whoami</span>
-        </div>
-        <div class="terminal-body">
-          <span class="t-line"><span class="t-prompt">┌──(alberick㉿soc)-[~]</span></span>
-          <span class="t-line"><span class="t-prompt">└─$ </span><span class="t-cmd">cat profile.json</span></span>
-          <span class="t-line" style="margin-top:8px;"><span class="t-out">{</span></span>
-          <span class="t-line">&nbsp;&nbsp;<span class="t-key">"name"</span><span class="t-out">: </span><span class="t-val">"Alberick Mahoussi"</span><span class="t-out">,</span></span>
-          <span class="t-line">&nbsp;&nbsp;<span class="t-key">"role"</span><span class="t-out">: </span><span class="t-val">"Blue Team Analyst"</span><span class="t-out">,</span></span>
-          <span class="t-line">&nbsp;&nbsp;<span class="t-key">"background"</span><span class="t-out">: </span><span class="t-val">"Software Developer → Cybersecurity"</span><span class="t-out">,</span></span>
-          <span class="t-line">&nbsp;&nbsp;<span class="t-key">"specializations"</span><span class="t-out">: [</span></span>
-          <span class="t-line">&nbsp;&nbsp;&nbsp;&nbsp;<span class="t-val">"SOC L1/L2 Analysis"</span><span class="t-out">,</span></span>
-          <span class="t-line">&nbsp;&nbsp;&nbsp;&nbsp;<span class="t-val">"Incident Response"</span><span class="t-out">,</span></span>
-          <span class="t-line">&nbsp;&nbsp;&nbsp;&nbsp;<span class="t-val">"Threat Hunting"</span><span class="t-out">,</span></span>
-          <span class="t-line">&nbsp;&nbsp;&nbsp;&nbsp;<span class="t-val">"SIEM Engineering"</span></span>
-          <span class="t-line">&nbsp;&nbsp;<span class="t-out">],</span></span>
-          <span class="t-line">&nbsp;&nbsp;<span class="t-key">"superpower"</span><span class="t-out">: </span><span class="t-val">"Dev mindset applied to defense"</span><span class="t-out">,</span></span>
-          <span class="t-line">&nbsp;&nbsp;<span class="t-key">"status"</span><span class="t-out">: </span><span class="t-val">"open_to_opportunities"</span></span>
-          <span class="t-line"><span class="t-out">}</span></span>
-          <span class="t-line" style="margin-top:8px;"><span class="t-prompt">└─$ </span><span class="t-cmd">_</span><span class="cursor"></span></span>
-        </div>
-      </div>
-    </section>
-
-    <section class="section">
-      <div class="section-header">
-        <span class="section-num">04</span>
-        <h2 class="section-title">Contact</h2>
-        <div class="section-line"></div>
-      </div>
-      <div class="contact-grid">
-        <div class="contact-card">
-          <div class="contact-icon"><i class="ti ti-brand-github" aria-hidden="true"></i></div>
-          <div>
-            <div class="contact-label">GITHUB</div>
-            <div class="contact-value">alberick-mahoussi</div>
-          </div>
-        </div>
-        <div class="contact-card">
-          <div class="contact-icon"><i class="ti ti-brand-linkedin" aria-hidden="true"></i></div>
-          <div>
-            <div class="contact-label">LINKEDIN</div>
-            <div class="contact-value">/in/alberick-mahoussi</div>
-          </div>
-        </div>
-        <div class="contact-card">
-          <div class="contact-icon"><i class="ti ti-mail" aria-hidden="true"></i></div>
-          <div>
-            <div class="contact-label">EMAIL</div>
-            <div class="contact-value">contact@ton-domaine.tech</div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <footer class="footer">
-      <span>alberick-mahoussi</span> · built with <span>{ passion & precision }</span> · 2025
-    </footer>
+    </div>
 
   </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects">
+  <div class="section-header">
+    <span class="section-num">03</span>
+    <h2 class="section-title">Projets GitHub</h2>
+    <div class="section-line"></div>
+  </div>
+  <div class="projects-grid">
+
+    <div class="project-card">
+      <p class="project-type">Malware Analysis · Kernel</p>
+      <p class="project-name">Rootkit</p>
+      <p class="project-desc">Analyse et étude de rootkits Linux. Compréhension des mécanismes de persistance noyau et d'évasion pour renforcer la détection en environnement SOC.</p>
+      <div class="project-footer">
+        <div class="stack"><span class="chip">C</span><span class="chip">Linux</span><span class="chip">Kernel</span></div>
+        <a href="https://github.com/alberick-mahoussi/rootkit" target="_blank" rel="noopener" class="repo-link">
+          <svg class="ico" width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0 1 12 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/></svg>
+          View repo
+        </a>
+      </div>
+    </div>
+
+    <div class="project-card">
+      <p class="project-type">SOC · SIEM · Detection</p>
+      <p class="project-name">SIEM Log Monitoring & Threat Detection</p>
+      <p class="project-desc">Pipeline complet de monitoring et détection de menaces. Ingestion de logs, règles de corrélation, dashboards d'analyse et alerting automatisé.</p>
+      <div class="project-footer">
+        <div class="stack"><span class="chip">Elastic</span><span class="chip">Python</span><span class="chip">Sigma</span></div>
+        <a href="https://github.com/alberick-mahoussi/SIEM-Log-Monitoring-Threat-Detection" target="_blank" rel="noopener" class="repo-link">
+          <svg class="ico" width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0 1 12 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/></svg>
+          View repo
+        </a>
+      </div>
+    </div>
+
+    <div class="project-card">
+      <p class="project-type">Active Directory · Hardening</p>
+      <p class="project-name">Active Directory — Build, Break & Secure</p>
+      <p class="project-desc">Lab AD complet : déploiement, simulation d'attaques (Kerberoasting, Pass-the-Hash, DCSync) et mise en place des contre-mesures défensives.</p>
+      <div class="project-footer">
+        <div class="stack"><span class="chip">Windows</span><span class="chip">PowerShell</span><span class="chip">AD</span></div>
+        <a href="https://github.com/alberick-mahoussi/Active-Directory-Build-Break-Secure" target="_blank" rel="noopener" class="repo-link">
+          <svg class="ico" width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0 1 12 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/></svg>
+          View repo
+        </a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- WHOAMI / TERMINAL -->
+<section id="about">
+  <div class="section-header">
+    <span class="section-num">04</span>
+    <h2 class="section-title">whoami</h2>
+    <div class="section-line"></div>
+  </div>
+  <div class="terminal">
+    <div class="terminal-bar">
+      <span class="dot dr"></span><span class="dot dy"></span><span class="dot dg"></span>
+      <span class="terminal-title">alberick@portfolio: ~/whoami</span>
+    </div>
+    <div class="terminal-body">
+      <span class="tl"><span class="tp">┌──(alberick㉿soc)-[~]</span></span>
+      <span class="tl"><span class="tp">└─$ </span><span style="color:var(--text)">cat profile.json</span></span>
+      <span class="tl">&nbsp;</span>
+      <span class="tl"><span class="to">{</span></span>
+      <span class="tl">&nbsp;&nbsp;<span class="tk">"name"</span><span class="to">:            </span><span class="tv">"Alberick Mahoussi"</span><span class="to">,</span></span>
+      <span class="tl">&nbsp;&nbsp;<span class="tk">"role"</span><span class="to">:            </span><span class="tv">"Blue Team Analyst"</span><span class="to">,</span></span>
+      <span class="tl">&nbsp;&nbsp;<span class="tk">"background"</span><span class="to">:     </span><span class="tv">"Software Developer → Cybersecurity"</span><span class="to">,</span></span>
+      <span class="tl">&nbsp;&nbsp;<span class="tk">"school"</span><span class="to">:         </span><span class="tv">"Ecole 2600"</span><span class="to">,</span></span>
+      <span class="tl">&nbsp;&nbsp;<span class="tk">"specializations"</span><span class="to">: [</span></span>
+      <span class="tl">&nbsp;&nbsp;&nbsp;&nbsp;<span class="tv">"SOC L1/L2 Analysis"</span><span class="to">,</span></span>
+      <span class="tl">&nbsp;&nbsp;&nbsp;&nbsp;<span class="tv">"Incident Response"</span><span class="to">,</span></span>
+      <span class="tl">&nbsp;&nbsp;&nbsp;&nbsp;<span class="tv">"Threat Hunting"</span><span class="to">,</span></span>
+      <span class="tl">&nbsp;&nbsp;&nbsp;&nbsp;<span class="tv">"SIEM Engineering"</span><span class="to">,</span></span>
+      <span class="tl">&nbsp;&nbsp;&nbsp;&nbsp;<span class="tv">"Active Directory Security"</span></span>
+      <span class="tl">&nbsp;&nbsp;<span class="to">],</span></span>
+      <span class="tl">&nbsp;&nbsp;<span class="tk">"platforms"</span><span class="to">: {</span></span>
+      <span class="tl">&nbsp;&nbsp;&nbsp;&nbsp;<span class="tk">"tryhackme"</span><span class="to">: </span><span class="tv">"@huen992"</span><span class="to">,</span></span>
+      <span class="tl">&nbsp;&nbsp;&nbsp;&nbsp;<span class="tk">"root-me"</span><span class="to">:   </span><span class="tv">"@huen992"</span><span class="to">,</span></span>
+      <span class="tl">&nbsp;&nbsp;&nbsp;&nbsp;<span class="tk">"htb"</span><span class="to">:       </span><span class="tv">"CDSA in progress"</span></span>
+      <span class="tl">&nbsp;&nbsp;<span class="to">},</span></span>
+      <span class="tl">&nbsp;&nbsp;<span class="tk">"superpower"</span><span class="to">:     </span><span class="tv">"Dev mindset applied to defense"</span><span class="to">,</span></span>
+      <span class="tl">&nbsp;&nbsp;<span class="tk">"status"</span><span class="to">:         </span><span class="tv">"open_to_opportunities"</span></span>
+      <span class="tl"><span class="to">}</span></span>
+      <span class="tl">&nbsp;</span>
+      <span class="tl"><span class="tp">└─$ </span><span style="color:var(--text)">_<span class="cursor"></span></span></span>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT / PLATFORMS -->
+<section id="contact">
+  <div class="section-header">
+    <span class="section-num">05</span>
+    <h2 class="section-title">Contact & Plateformes</h2>
+    <div class="section-line"></div>
+  </div>
+  <div class="platforms-grid">
+
+    <a href="mailto:alberick.mahoussi@ecole2600.com" class="platform-card">
+      <div class="platform-icon pi-mail">@</div>
+      <div><div class="p-label">EMAIL</div><div class="p-value">alberick.mahoussi<br>@ecole2600.com</div></div>
+    </a>
+
+    <a href="https://linkedin.com/in/alberick-mahoussi" target="_blank" rel="noopener" class="platform-card">
+      <div class="platform-icon pi-li">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+      </div>
+      <div><div class="p-label">LINKEDIN</div><div class="p-value">alberick-mahoussi</div></div>
+    </a>
+
+    <a href="https://github.com/alberick-mahoussi" target="_blank" rel="noopener" class="platform-card">
+      <div class="platform-icon pi-gh">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0 1 12 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/></svg>
+      </div>
+      <div><div class="p-label">GITHUB</div><div class="p-value">alberick-mahoussi</div></div>
+    </a>
+
+    <a href="https://tryhackme.com/p/huen992" target="_blank" rel="noopener" class="platform-card thm">
+      <div class="platform-icon pi-thm">THM</div>
+      <div><div class="p-label">TRYHACKME</div><div class="p-value">@huen992</div></div>
+    </a>
+
+    <a href="https://profile.hackthebox.com/profile/019e7e2f-b3d4-716e-8dc0-5297772792fb" target="_blank" rel="noopener" class="platform-card htb">
+      <div class="platform-icon pi-htb">HTB</div>
+      <div><div class="p-label">HACKTHEBOX</div><div class="p-value">@huen992</div></div>
+    </a>
+
+    <a href="https://www.root-me.org/huen922?lang=fr" target="_blank" rel="noopener" class="platform-card rootme">
+      <div class="platform-icon pi-rootme">RM</div>
+      <div><div class="p-label">ROOT-ME</div><div class="p-value">@huen992</div></div>
+    </a>
+
+  </div>
+</section>
+
+<footer>
+  <span>alberick-mahoussi</span> &nbsp;·&nbsp; built with <span>{ precision & passion }</span> &nbsp;·&nbsp; 2025
+</footer>
+
 </div>
+</body>
+</html>
