@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Certifications — Alberick Mahoussi</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Syne:wght@400;500;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="_base.css">
+<style>
+.certs-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); gap:16px; }
+.cert-card { background:var(--surface); border:1px solid var(--border); border-radius:8px; padding:1.5rem; display:flex; align-items:flex-start; gap:16px; transition:border-color 0.2s,transform 0.2s; }
+.cert-card:hover { border-color:var(--accent); transform:translateY(-2px); }
+.cert-logo { width:48px; height:48px; border-radius:8px; flex-shrink:0; display:flex; align-items:center; justify-content:center; font-size:14px; font-weight:800; font-family:var(--mono); }
+.cert-logo.thm { background:rgba(162,56,33,0.2); color:#ef4444; border:1px solid rgba(162,56,33,0.4); }
+.cert-logo.htb { background:rgba(0,255,157,0.1); color:var(--green); border:1px solid rgba(0,255,157,0.3); }
+.cert-logo.iso { background:rgba(0,212,255,0.1); color:var(--accent); border:1px solid rgba(0,212,255,0.3); }
+.cert-logo.cwl { background:rgba(124,58,237,0.15); color:#a78bfa; border:1px solid rgba(124,58,237,0.4); }
+.cert-name { font-size:14px; font-weight:600; color:var(--text); margin-bottom:4px; line-height:1.35; }
+.cert-issuer { font-family:var(--mono); font-size:11px; color:var(--muted); margin-bottom:2px; }
+.cert-desc { font-size:12px; color:var(--muted); line-height:1.6; margin-top:8px; }
+
+/* PLATFORMS */
+.platforms-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:14px; }
+.platform-card { background:var(--surface); border:1px solid var(--border); border-radius:8px; padding:1.25rem 1.5rem; display:flex; align-items:center; gap:14px; text-decoration:none; transition:border-color 0.2s,transform 0.2s; }
+.platform-card:hover { transform:translateY(-2px); }
+.platform-card.thm:hover { border-color:#ef4444; }
+.platform-card.htb:hover { border-color:var(--green); }
+.platform-card.rm:hover  { border-color:#f97316; }
+.pi { width:42px; height:42px; border-radius:8px; display:flex; align-items:center; justify-content:center; font-size:13px; font-weight:800; font-family:var(--mono); flex-shrink:0; }
+.pi-thm { background:rgba(162,56,33,0.15); border:1px solid rgba(162,56,33,0.3); color:#ef4444; }
+.pi-htb { background:rgba(0,255,157,0.08); border:1px solid rgba(0,255,157,0.25); color:var(--green); }
+.pi-rm  { background:rgba(249,115,22,0.1); border:1px solid rgba(249,115,22,0.3); color:#f97316; }
+.p-label { font-family:var(--mono); font-size:10px; color:var(--muted); margin-bottom:3px; }
+.p-value { font-size:14px; color:var(--text); font-weight:600; }
+.p-sub   { font-family:var(--mono); font-size:11px; color:var(--accent); margin-top:2px; }
+</style>
+</head>
+<body>
+<div class="grid-bg"></div><div class="scan-line"></div>
+<div class="content">
+
+<nav>
+  <a href="index.html" class="nav-logo">alberick@soc:~$&nbsp;<span class="cursor"></span></a>
+  <div class="nav-links">
+    <a href="index.html">./home</a>
+    <a href="about.html">./about</a>
+    <a href="projects.html">./projets</a>
+    <a href="certs.html" class="active">./certifications</a>
+    <a href="contact.html">./contact</a>
+    <a href="https://linkedin.com/in/alberick-mahoussi" target="_blank" rel="noopener" class="nav-btn nav-li">
+      <svg class="ico" width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>LinkedIn
+    </a>
+    <a href="https://github.com/alberick-mahoussi" target="_blank" rel="noopener" class="nav-btn nav-gh">
+      <svg class="ico" width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0 1 12 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/></svg>GitHub
+    </a>
+  </div>
+</nav>
+<div class="status-bar">
+  <span><span class="status-dot"></span></span><span>SYSTEM ONLINE</span><span>|</span>
+  <span>5 CERTIFICATIONS</span><span>|</span><span>CDSA IN PROGRESS</span><span>|</span>
+  <span style="color:var(--green);">&#x25B6; ALTERNANCE SEPT 2026</span>
+</div>
+
+<div class="page-header">
+  <div class="page-tag">&#x2713; CERTIFICATIONS</div>
+  <h2 class="page-title">Certifications & <span>Formations</span></h2>
+  <p class="page-desc">Parcours de certifications orienté Blue Team, SOC et sécurité défensive.</p>
+</div>
+
+<section style="border-top:none;padding-top:0;">
+  <div class="section-header"><span class="section-num">01</span><h2 class="section-title">Certifications obtenues</h2><div class="section-line"></div></div>
+  <div class="certs-grid">
+
+    <div class="cert-card">
+      <div class="cert-logo iso">ISO</div>
+      <div>
+        <div class="cert-name">ISO/IEC 27001:2022 Information Security Associate™</div>
+        <div class="cert-issuer">SkillFront</div>
+        <span class="status-done"><span class="status-dot"></span> Obtenu</span>
+        <p class="cert-desc">Fondamentaux du système de management de la sécurité de l'information (SMSI), contrôles de sécurité, gestion des risques et conformité RGPD.</p>
+      </div>
+    </div>
+
+    <div class="cert-card">
+      <div class="cert-logo thm">THM</div>
+      <div>
+        <div class="cert-name">SOC Level 1 Certificate</div>
+        <div class="cert-issuer">TryHackMe · @huen992</div>
+        <span class="status-done"><span class="status-dot"></span> Obtenu</span>
+        <p class="cert-desc">Analyse d'alertes, triage d'incidents, investigation de logs, outils SOC (SIEM, EDR), gestion des tickets et escalade.</p>
+      </div>
+    </div>
+
+    <div class="cert-card">
+      <div class="cert-logo thm">THM</div>
+      <div>
+        <div class="cert-name">SOC Level 2 Path</div>
+        <div class="cert-issuer">TryHackMe · @huen992</div>
+        <span class="status-done"><span class="status-dot"></span> Complété</span>
+        <p class="cert-desc">Threat hunting avancé, analyse malware, forensic numérique, threat intelligence et réponse à incidents complexes.</p>
+      </div>
+    </div>
+
+    <div class="cert-card">
+      <div class="cert-logo thm">THM</div>
+      <div>
+        <div class="cert-name">Jr Penetration Tester Certificate</div>
+        <div class="cert-issuer">TryHackMe · @huen992</div>
+        <span class="status-done"><span class="status-dot"></span> Obtenu</span>
+        <p class="cert-desc">Méthodologie pentest, reconnaissance, exploitation web (OWASP), post-exploitation et rédaction de rapports.</p>
+      </div>
+    </div>
+
+    <div class="cert-card">
+      <div class="cert-logo thm">THM</div>
+      <div>
+        <div class="cert-name">Web Fundamentals Certificate</div>
+        <div class="cert-issuer">TryHackMe · @huen992</div>
+        <span class="status-done"><span class="status-dot"></span> Obtenu</span>
+        <p class="cert-desc">Sécurité web, protocoles HTTP/S, injections SQL, XSS, CSRF, authentification et bonnes pratiques OWASP.</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<section>
+  <div class="section-header"><span class="section-num">02</span><h2 class="section-title">En cours de préparation</h2><div class="section-line"></div></div>
+  <div class="certs-grid">
+
+    <div class="cert-card">
+      <div class="cert-logo htb">HTB</div>
+      <div>
+        <div class="cert-name">Certified Defensive Security Analyst (CDSA)</div>
+        <div class="cert-issuer">HackTheBox Academy</div>
+        <span class="status-wip">&#9679; En préparation</span>
+        <p class="cert-desc">Analyse de sécurité défensive, investigation d'incidents avancée, threat hunting avec outils enterprise, forensic et réponse à incidents en environnement réel.</p>
+      </div>
+    </div>
+
+    <div class="cert-card">
+      <div class="cert-logo cwl">CWL</div>
+      <div>
+        <div class="cert-name">Certified Cyber Security Analyst</div>
+        <div class="cert-issuer">CyberWarfare Labs</div>
+        <span class="status-wip">&#9679; En cours</span>
+        <p class="cert-desc">Analyse de cybersécurité opérationnelle, gestion des menaces avancées persistantes (APT) et opérations SOC.</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<section>
+  <div class="section-header"><span class="section-num">03</span><h2 class="section-title">Plateformes CTF & Practice</h2><div class="section-line"></div></div>
+  <div class="platforms-grid">
+
+    <a href="https://tryhackme.com/p/huen992" target="_blank" rel="noopener" class="platform-card thm">
+      <div class="pi pi-thm">THM</div>
+      <div>
+        <div class="p-label">TRYHACKME</div>
+        <div class="p-value">@huen992</div>
+        <div class="p-sub">Top 2% mondial · 20 500 pts</div>
+      </div>
+    </a>
+
+    <a href="https://profile.hackthebox.com/profile/019e7e2f-b3d4-716e-8dc0-5297772792fb" target="_blank" rel="noopener" class="platform-card htb">
+      <div class="pi pi-htb">HTB</div>
+      <div>
+        <div class="p-label">HACKTHEBOX</div>
+        <div class="p-value">@huen992</div>
+        <div class="p-sub">CDSA in progress</div>
+      </div>
+    </a>
+
+    <a href="https://www.root-me.org/huen992?lang=fr" target="_blank" rel="noopener" class="platform-card rm">
+      <div class="pi pi-rm">RM</div>
+      <div>
+        <div class="p-label">ROOT-ME</div>
+        <div class="p-value">@huen992</div>
+        <div class="p-sub">1 020 points</div>
+      </div>
+    </a>
+
+  </div>
+</section>
+
+<footer>
+  <div class="footer-links">
+    <a href="index.html">Home</a><a href="about.html">About</a><a href="projects.html">Projets</a>
+    <a href="certs.html">Certifications</a><a href="contact.html">Contact</a>
+    <a href="https://github.com/alberick-mahoussi" target="_blank" rel="noopener">GitHub</a>
+    <a href="https://linkedin.com/in/alberick-mahoussi" target="_blank" rel="noopener">LinkedIn</a>
+  </div>
+  <div><span>alberick-mahoussi</span> &nbsp;·&nbsp; built with <span>{ precision & passion }</span> &nbsp;·&nbsp; 2025</div>
+</footer>
+</div>
+</body>
+</html>
