@@ -140,7 +140,8 @@
       "Splunk",
       "Metasploitable",
       "Kali",
-      "ubuntu"
+      "ubuntu",
+      "Pfsense"
     ]
   }
 ]
