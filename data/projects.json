@@ -123,5 +123,14 @@
       "EBIOS-RM"
     ],
     "url": "https://github.com/alberick-mahoussi/analyse-risque-EBIOS-RM"
+  },
+  {
+    "id": "home-lab",
+    "title": "HOEMLAB",
+    "category": "SOC · SIEM · Detection Engineering · Malware Analyse",
+    "description": "s",
+    "topics": [
+      "SOC"
+    ]
   }
 ]
