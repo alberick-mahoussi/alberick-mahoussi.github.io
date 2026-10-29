@@ -128,9 +128,19 @@
     "id": "home-lab",
     "title": "HOEMLAB",
     "category": "SOC · SIEM · Detection Engineering · Malware Analyse",
-    "description": "s",
+    "description": "environnement complet d'entraînement SOC (Security Operations Center) intégrant SIEM, détection réseau, Active Directory, machines vulnérables et outils d'attaque.",
     "topics": [
-      "SOC"
+      "SOC",
+      "SIEM",
+      "Lab"
+    ],
+    "technologies": [
+      "AD",
+      "Wazuh",
+      "Splunk",
+      "Metasploitable",
+      "Kali",
+      "ubuntu"
     ]
   }
 ]
