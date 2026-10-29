@@ -68,6 +68,10 @@ content:
         list: true
       - name: content
         label: Contenu Markdown
-        type: text
+        type: rich-text
         required: true
-        description: Colle ici le contenu Markdown de ton README ou write-up.
+        options:
+          format: markdown
+          switcher: true
+          media: false
+        description: Utilise Source pour coller du Markdown brut, ou Editor pour écrire et mettre en forme. Pour un titre, écris « # Titre » avec une espace après #.

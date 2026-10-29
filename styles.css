@@ -209,6 +209,13 @@ section + section { border-top: 1px solid var(--border); }
 .markdown-content ul { list-style: disc; }
 .markdown-content ol { list-style: decimal; }
 .markdown-content li { padding-left: 0.25rem; margin-bottom: 0.35rem; }
+.markdown-content blockquote {
+  border-left: 3px solid var(--accent);
+  color: var(--muted);
+  padding-left: 1rem;
+}
+.markdown-content hr { border: 0; border-top: 1px solid var(--border); margin: 1.5rem 0; }
+.markdown-content mark { background: var(--warn-soft); color: var(--ink); padding: 0 0.2em; }
 .markdown-content a { color: var(--accent); }
 .markdown-content code {
   font-size: 0.9em;

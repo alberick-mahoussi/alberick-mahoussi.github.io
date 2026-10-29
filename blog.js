@@ -34,6 +34,8 @@ function renderInlineMarkdown(text) {
   });
   html = html.replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>');
   html = html.replace(/\*([^*]+)\*/g, '<em>$1</em>');
+  html = html.replace(/~~(.+?)~~/g, '<del>$1</del>');
+  html = html.replace(/==(.+?)==/g, '<mark>$1</mark>');
   return html.replace(/@@CODE(\d+)@@/g, (_, index) => codeTokens[Number(index)]);
 }
 
@@ -43,6 +45,7 @@ function renderMarkdown(markdown) {
   const lines = markdown.replace(/\r\n?/g, '\n').split('\n');
   let paragraph = [];
   let list = null;
+  let quote = [];
   let codeLines = null;
 
   const flushParagraph = () => {
@@ -57,11 +60,19 @@ function renderMarkdown(markdown) {
     container.append(list);
     list = null;
   };
+  const flushQuote = () => {
+    if (!quote.length) return;
+    const blockquote = document.createElement('blockquote');
+    blockquote.innerHTML = quote.map(renderInlineMarkdown).join('<br>');
+    container.append(blockquote);
+    quote = [];
+  };
 
   lines.forEach(line => {
     if (line.trim().startsWith('```')) {
       flushParagraph();
       flushList();
+      flushQuote();
       if (codeLines) {
         const pre = document.createElement('pre');
         const code = document.createElement('code');
@@ -78,17 +89,20 @@ function renderMarkdown(markdown) {
       codeLines.push(line);
       return;
     }
-    const heading = line.match(/^(#{1,4})\s+(.+)$/);
+    const heading = line.match(/^(#{1,4})(?:\s+(.+)|\s*)$/);
     const listItem = line.match(/^\s*(?:[-*]|\d+\.)\s+(.+)$/);
+    const quoteLine = line.match(/^\s*>\s?(.*)$/);
     if (heading) {
       flushParagraph();
       flushList();
+      flushQuote();
       const level = Math.min(heading[1].length + 1, 5);
       const headingElement = document.createElement(`h${level}`);
-      headingElement.innerHTML = renderInlineMarkdown(heading[2]);
+      headingElement.innerHTML = renderInlineMarkdown(heading[2] || '');
       container.append(headingElement);
     } else if (listItem) {
       flushParagraph();
+      flushQuote();
       const ordered = /^\s*\d+\./.test(line);
       const tagName = ordered ? 'ol' : 'ul';
       if (list && list.tagName.toLowerCase() !== tagName) flushList();
@@ -96,16 +110,28 @@ function renderMarkdown(markdown) {
       const item = document.createElement('li');
       item.innerHTML = renderInlineMarkdown(listItem[1]);
       list.append(item);
+    } else if (quoteLine) {
+      flushParagraph();
+      flushList();
+      quote.push(quoteLine[1]);
     } else if (!line.trim()) {
       flushParagraph();
       flushList();
+      flushQuote();
     } else {
       flushList();
-      paragraph.push(line);
+      flushQuote();
+      if (/^\s*(?:---+|___+|\*\*\*+)\s*$/.test(line)) {
+        flushParagraph();
+        container.append(document.createElement('hr'));
+      } else {
+        paragraph.push(line);
+      }
     }
   });
   flushParagraph();
   flushList();
+  flushQuote();
   if (codeLines) {
     const pre = document.createElement('pre');
     const code = document.createElement('code');
