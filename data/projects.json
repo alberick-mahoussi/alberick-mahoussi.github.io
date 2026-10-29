@@ -1,5 +1,44 @@
 [
   {
+    "id": "rootkit-analyse-detection",
+    "title": "Rootkit — Analyse & Détection",
+    "category": "Malware Analysis · Kernel Security",
+    "description": "Étude des mécanismes de rootkits Linux au niveau noyau : persistance, évasion, et indicateurs de compromission utiles pour renforcer la détection côté SOC.",
+    "topics": [
+      "malware",
+      "recherche",
+      "systemes"
+    ],
+    "technologies": [
+      "C",
+      "Linux",
+      "Kernel"
+    ],
+    "url": "https://github.com/alberick-mahoussi/rootkit"
+  },
+  {
+    "id": "home-lab",
+    "title": "HOEMLAB",
+    "category": "SOC · SIEM · Detection Engineering · Malware Analyse",
+    "description": "environnement complet d'entraînement SOC (Security Operations Center) intégrant SIEM, détection réseau, Active Directory, machines vulnérables et outils d'attaque.",
+    "topics": [
+      "SOC",
+      "SIEM",
+      "Lab"
+    ],
+    "technologies": [
+      "AD",
+      "Wazuh",
+      "Splunk",
+      "Metasploitable",
+      "Kali",
+      "ubuntu",
+      "Pfsense",
+      "Security Onion"
+    ],
+    "url": "https://github.com/alberick-mahoussi/HOMELAB"
+  },
+  {
     "id": "siem-log-monitoring-threat-detection",
     "title": "SIEM Log Monitoring & Threat Detection",
     "category": "SOC · SIEM · Detection Engineering",
@@ -47,23 +86,6 @@
       "AD"
     ],
     "url": "https://github.com/alberick-mahoussi/Active-Directory-Build-Break-Secure"
-  },
-  {
-    "id": "rootkit-analyse-detection",
-    "title": "Rootkit — Analyse & Détection",
-    "category": "Malware Analysis · Kernel Security",
-    "description": "Étude des mécanismes de rootkits Linux au niveau noyau : persistance, évasion, et indicateurs de compromission utiles pour renforcer la détection côté SOC.",
-    "topics": [
-      "malware",
-      "recherche",
-      "systemes"
-    ],
-    "technologies": [
-      "C",
-      "Linux",
-      "Kernel"
-    ],
-    "url": "https://github.com/alberick-mahoussi/rootkit"
   },
   {
     "id": "scripts-analyse-triage",
@@ -123,27 +145,5 @@
       "EBIOS-RM"
     ],
     "url": "https://github.com/alberick-mahoussi/analyse-risque-EBIOS-RM"
-  },
-  {
-    "id": "home-lab",
-    "title": "HOEMLAB",
-    "category": "SOC · SIEM · Detection Engineering · Malware Analyse",
-    "description": "environnement complet d'entraînement SOC (Security Operations Center) intégrant SIEM, détection réseau, Active Directory, machines vulnérables et outils d'attaque.",
-    "topics": [
-      "SOC",
-      "SIEM",
-      "Lab"
-    ],
-    "technologies": [
-      "AD",
-      "Wazuh",
-      "Splunk",
-      "Metasploitable",
-      "Kali",
-      "ubuntu",
-      "Pfsense",
-      "Security Onion"
-    ],
-    "url": "https://github.com/alberick-mahoussi/HOMELAB"
   }
 ]
