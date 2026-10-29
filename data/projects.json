@@ -24,7 +24,7 @@
     "topics": [
       "SOC",
       "SIEM",
-      "Lab"
+      "lab"
     ],
     "technologies": [
       "AD",
@@ -77,8 +77,7 @@
     "category": "Active Directory · Attack & Defense",
     "description": "Déploiement d'un lab AD complet, simulation d'attaques internes (Kerberoasting, Pass-the-Hash, DCSync), élévation de privilèges puis mise en place des contre-mesures de durcissement.",
     "topics": [
-      "lab",
-      "recherche"
+      "lab"
     ],
     "technologies": [
       "Windows Server",
@@ -108,8 +107,7 @@
     "category": "Systèmes · Rust",
     "description": "Petits projets en Rust et C pour approfondir la gestion mémoire, la concurrence et les fondations sur lesquelles reposent la plupart des vulnérabilités systèmes.",
     "topics": [
-      "systemes",
-      "recherche"
+      "systemes"
     ],
     "technologies": [
       "Rust",
