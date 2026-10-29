@@ -1,0 +1,73 @@
+content:
+  - name: projects
+    label: Projets
+    type: file
+    path: data/projects.json
+    format: json
+    list: true
+    fields:
+      - name: id
+        label: Identifiant URL
+        type: string
+        required: true
+        pattern: "^[a-z0-9-]+$"
+        description: Identifiant unique en minuscules, utilisé pour reconnaître le projet.
+      - name: title
+        label: Nom du projet
+        type: string
+        required: true
+      - name: category
+        label: Catégorie affichée
+        type: string
+        required: true
+      - name: description
+        label: Description courte
+        type: text
+        required: true
+      - name: topics
+        label: Topics de filtre
+        type: string
+        list: true
+        required: true
+      - name: technologies
+        label: Technologies
+        type: string
+        list: true
+      - name: url
+        label: Lien du projet
+        type: string
+        description: URL HTTP ou HTTPS du dépôt ou de la démonstration.
+
+  - name: writeups
+    label: Blog / write-ups
+    type: file
+    path: data/blog.json
+    format: json
+    list: true
+    fields:
+      - name: id
+        label: Identifiant URL
+        type: string
+        required: true
+        pattern: "^[a-z0-9-]+$"
+        description: Identifiant unique en minuscules, utilisé dans l’URL du write-up.
+      - name: title
+        label: Titre
+        type: string
+        required: true
+      - name: date
+        label: Date affichée
+        type: string
+      - name: summary
+        label: Résumé
+        type: text
+        required: true
+      - name: topics
+        label: Topics
+        type: string
+        list: true
+      - name: content
+        label: Contenu Markdown
+        type: text
+        required: true
+        description: Colle ici le contenu Markdown de ton README ou write-up.
