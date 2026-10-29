@@ -173,6 +173,7 @@ section + section { border-top: 1px solid var(--border); }
 .project-card { display: flex; flex-direction: column; gap: 12px; }
 .project-card .cat { font-family: var(--mono); font-size: 11px; color: var(--accent); }
 .project-card h3 { font-size: 16px; font-weight: 700; font-family: var(--sans); }
+.project-card h2 { font-size: 16px; font-weight: 700; font-family: var(--sans); }
 .project-card p { color: var(--muted); font-size: 13px; line-height: 1.7; flex: 1; }
 .project-card .foot {
   display: flex; align-items: center; justify-content: space-between; gap: 10px;
@@ -184,6 +185,46 @@ section + section { border-top: 1px solid var(--border); }
 }
 .repo-link:hover { text-decoration: underline; }
 .project-card[hidden] { display: none; }
+.data-error {
+  border: 1px solid var(--danger);
+  border-radius: var(--radius);
+  background: #fff1f1;
+  color: var(--danger);
+  padding: 0.9rem 1rem;
+  font-size: 13px;
+}
+.article-view { max-width: 720px; margin: 0 auto; }
+.article-kicker { margin-top: 2rem; }
+.article-title { margin-bottom: 0.8rem; }
+.article-summary { margin-bottom: 1rem; }
+.article-topics { margin-bottom: 2rem; }
+.markdown-content { color: var(--ink); font-size: 14px; line-height: 1.85; overflow-wrap: anywhere; }
+.markdown-content h2, .markdown-content h3, .markdown-content h4, .markdown-content h5 {
+  margin: 2rem 0 0.8rem;
+}
+.markdown-content p, .markdown-content ul, .markdown-content ol, .markdown-content pre, .markdown-content blockquote {
+  margin-bottom: 1rem;
+}
+.markdown-content ul, .markdown-content ol { padding-left: 1.6rem; }
+.markdown-content ul { list-style: disc; }
+.markdown-content ol { list-style: decimal; }
+.markdown-content li { padding-left: 0.25rem; margin-bottom: 0.35rem; }
+.markdown-content a { color: var(--accent); }
+.markdown-content code {
+  font-size: 0.9em;
+  background: var(--surface-2);
+  border-radius: 4px;
+  padding: 0.1rem 0.3rem;
+}
+.markdown-content pre {
+  overflow-x: auto;
+  background: #10151f;
+  color: #cbd5e1;
+  border-radius: var(--radius);
+  padding: 1rem;
+}
+.markdown-content pre code { background: transparent; padding: 0; }
+.article-navigation { margin-top: 2.5rem; border-top: 1px solid var(--border); padding-top: 1rem; }
 
 /* Timeline (genuinely sequential content only) */
 .timeline { position: relative; padding-left: 1.75rem; }

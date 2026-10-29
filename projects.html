@@ -27,84 +27,14 @@
   <p class="page-kicker">GitHub</p>
   <h1 class="page-title">Projets</h1>
   <p class="page-desc">Labs, outils et recherches — techniques et défensives. Filtre par catégorie pour retrouver un domaine précis.</p>
+  <a href="https://app.pagescms.org/" target="_blank" rel="noopener noreferrer" class="repo-link">Gérer via Pages CMS ↗</a>
 </div>
 
 <section style="border-top:none; padding-top:0;">
 
-  <div class="tags" id="filters" style="margin-bottom:1.75rem;">
-    <button class="chip active" data-filter="all">Tous <span class="count">(6)</span></button>
-    <button class="chip" data-filter="soc">SOC</button>
-    <button class="chip" data-filter="malware">Malware Analysis</button>
-    <button class="chip" data-filter="lab">Lab</button>
-    <button class="chip" data-filter="outils">Outils</button>
-    <button class="chip" data-filter="recherche">Recherche</button>
-    <button class="chip" data-filter="systemes">Systèmes (Rust/C)</button>
-  </div>
-
-  <div class="grid grid-2" id="project-grid">
-
-    <div class="project-card card" data-tags="soc outils">
-      <p class="cat">SOC · SIEM · Detection Engineering</p>
-      <h3>SIEM Log Monitoring & Threat Detection</h3>
-      <p>Ingestion et analyse de logs Sysmon/Windows dans un lab Splunk. Règles de détection pour force brute, PowerShell offensif et mouvements latéraux, avec playbooks de réponse associés.</p>
-      <div class="foot">
-        <div class="tags"><span class="tag">Splunk</span><span class="tag">Sysmon</span><span class="tag">Python</span><span class="tag">Sigma</span></div>
-        <a href="https://github.com/alberick-mahoussi/SIEM-Log-Monitoring-Threat-Detection" target="_blank" rel="noopener" class="repo-link">Voir le repo ↗</a>
-      </div>
-    </div>
-
-    <div class="project-card card" data-tags="soc lab">
-      <p class="cat">Network Security · IDS · Packet Analysis</p>
-      <h3>IDS Deployment & Packet Analysis</h3>
-      <p>Déploiement d'un IDS Snort sur un réseau de test, tuning des règles pour réduire les faux positifs, détection d'injections SQL et corrélation MITRE ATT&CK sur les PCAP capturés.</p>
-      <div class="foot">
-        <div class="tags"><span class="tag">Snort</span><span class="tag">Wireshark</span><span class="tag">MITRE</span></div>
-        <a href="https://github.com/alberick-mahoussi" target="_blank" rel="noopener" class="repo-link">Voir le repo ↗</a>
-      </div>
-    </div>
-
-    <div class="project-card card" data-tags="lab recherche">
-      <p class="cat">Active Directory · Attack & Defense</p>
-      <h3>Active Directory — Build, Break & Secure</h3>
-      <p>Déploiement d'un lab AD complet, simulation d'attaques internes (Kerberoasting, Pass-the-Hash, DCSync), élévation de privilèges puis mise en place des contre-mesures de durcissement.</p>
-      <div class="foot">
-        <div class="tags"><span class="tag">Windows Server</span><span class="tag">PowerShell</span><span class="tag">AD</span></div>
-        <a href="https://github.com/alberick-mahoussi/Active-Directory-Build-Break-Secure" target="_blank" rel="noopener" class="repo-link">Voir le repo ↗</a>
-      </div>
-    </div>
-
-    <div class="project-card card" data-tags="malware recherche systemes">
-      <p class="cat">Malware Analysis · Kernel Security</p>
-      <h3>Rootkit — Analyse & Détection</h3>
-      <p>Étude des mécanismes de rootkits Linux au niveau noyau : persistance, évasion, et indicateurs de compromission utiles pour renforcer la détection côté SOC.</p>
-      <div class="foot">
-        <div class="tags"><span class="tag">C</span><span class="tag">Linux</span><span class="tag">Kernel</span></div>
-        <a href="https://github.com/alberick-mahoussi/rootkit" target="_blank" rel="noopener" class="repo-link">Voir le repo ↗</a>
-      </div>
-    </div>
-
-    <div class="project-card card" data-tags="outils systemes">
-      <p class="cat">Outil · Automatisation</p>
-      <h3>Scripts d'analyse & triage</h3>
-      <p>Petits utilitaires en Python et Bash pour accélérer le triage d'alertes et l'analyse d'intégrité de flux — développés au fil des missions.</p>
-      <div class="foot">
-        <div class="tags"><span class="tag">Python</span><span class="tag">Bash</span></div>
-        <a href="https://github.com/alberick-mahoussi" target="_blank" rel="noopener" class="repo-link">Voir le repo ↗</a>
-      </div>
-    </div>
-
-    <div class="project-card card" data-tags="systemes recherche">
-      <p class="cat">Systèmes · Rust</p>
-      <h3>Expérimentations bas-niveau</h3>
-      <p>Petits projets en Rust et C pour approfondir la gestion mémoire, la concurrence et les fondations sur lesquelles reposent la plupart des vulnérabilités systèmes.</p>
-      <div class="foot">
-        <div class="tags"><span class="tag">Rust</span><span class="tag">C</span></div>
-        <a href="https://github.com/alberick-mahoussi" target="_blank" rel="noopener" class="repo-link">Voir le repo ↗</a>
-      </div>
-    </div>
-
-  </div>
-
+  <div class="tags" id="filters" style="margin-bottom:1.75rem;" aria-label="Filtrer les projets"></div>
+  <p id="project-error" class="data-error" role="alert" hidden></p>
+  <div class="grid grid-2" id="project-grid" aria-live="polite"></div>
   <p id="empty-msg" hidden style="color:var(--muted); font-size:13.5px; margin-top:1.5rem;">Aucun projet dans cette catégorie pour l'instant.</p>
 
 </section>
@@ -119,26 +49,7 @@
   </div>
 </footer>
 
-<script>
-const filters = document.querySelectorAll('#filters .chip');
-const cards = document.querySelectorAll('#project-grid .project-card');
-const emptyMsg = document.getElementById('empty-msg');
-
-filters.forEach(chip => {
-  chip.addEventListener('click', () => {
-    filters.forEach(c => c.classList.remove('active'));
-    chip.classList.add('active');
-    const filter = chip.dataset.filter;
-    let visible = 0;
-    cards.forEach(card => {
-      const show = filter === 'all' || card.dataset.tags.split(' ').includes(filter);
-      card.hidden = !show;
-      if (show) visible++;
-    });
-    emptyMsg.hidden = visible !== 0;
-  });
-});
-</script>
+<script src="projects.js" defer></script>
 
 </body>
 </html>

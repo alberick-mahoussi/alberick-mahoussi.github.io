@@ -1,0 +1,56 @@
+[
+  {
+    "id": "siem-log-monitoring-threat-detection",
+    "title": "SIEM Log Monitoring & Threat Detection",
+    "category": "SOC · SIEM · Detection Engineering",
+    "description": "Ingestion et analyse de logs Sysmon/Windows dans un lab Splunk. Règles de détection pour force brute, PowerShell offensif et mouvements latéraux, avec playbooks de réponse associés.",
+    "topics": ["soc", "outils"],
+    "technologies": ["Splunk", "Sysmon", "Python", "Sigma"],
+    "url": "https://github.com/alberick-mahoussi/SIEM-Log-Monitoring-Threat-Detection"
+  },
+  {
+    "id": "ids-deployment-packet-analysis",
+    "title": "IDS Deployment & Packet Analysis",
+    "category": "Network Security · IDS · Packet Analysis",
+    "description": "Déploiement d'un IDS Snort sur un réseau de test, tuning des règles pour réduire les faux positifs, détection d'injections SQL et corrélation MITRE ATT&CK sur les PCAP capturés.",
+    "topics": ["soc", "lab"],
+    "technologies": ["Snort", "Wireshark", "MITRE"],
+    "url": "https://github.com/alberick-mahoussi"
+  },
+  {
+    "id": "active-directory-build-break-secure",
+    "title": "Active Directory — Build, Break & Secure",
+    "category": "Active Directory · Attack & Defense",
+    "description": "Déploiement d'un lab AD complet, simulation d'attaques internes (Kerberoasting, Pass-the-Hash, DCSync), élévation de privilèges puis mise en place des contre-mesures de durcissement.",
+    "topics": ["lab", "recherche"],
+    "technologies": ["Windows Server", "PowerShell", "AD"],
+    "url": "https://github.com/alberick-mahoussi/Active-Directory-Build-Break-Secure"
+  },
+  {
+    "id": "rootkit-analyse-detection",
+    "title": "Rootkit — Analyse & Détection",
+    "category": "Malware Analysis · Kernel Security",
+    "description": "Étude des mécanismes de rootkits Linux au niveau noyau : persistance, évasion, et indicateurs de compromission utiles pour renforcer la détection côté SOC.",
+    "topics": ["malware", "recherche", "systemes"],
+    "technologies": ["C", "Linux", "Kernel"],
+    "url": "https://github.com/alberick-mahoussi/rootkit"
+  },
+  {
+    "id": "scripts-analyse-triage",
+    "title": "Scripts d'analyse & triage",
+    "category": "Outil · Automatisation",
+    "description": "Petits utilitaires en Python et Bash pour accélérer le triage d'alertes et l'analyse d'intégrité de flux — développés au fil des missions.",
+    "topics": ["outils", "systemes"],
+    "technologies": ["Python", "Bash"],
+    "url": "https://github.com/alberick-mahoussi"
+  },
+  {
+    "id": "experimentations-bas-niveau",
+    "title": "Expérimentations bas-niveau",
+    "category": "Systèmes · Rust",
+    "description": "Petits projets en Rust et C pour approfondir la gestion mémoire, la concurrence et les fondations sur lesquelles reposent la plupart des vulnérabilités systèmes.",
+    "topics": ["systemes", "recherche"],
+    "technologies": ["Rust", "C"],
+    "url": "https://github.com/alberick-mahoussi"
+  }
+]
