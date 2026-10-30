@@ -1,147 +1,83 @@
 [
   {
-    "id": "rootkit-analyse-detection",
-    "title": "Rootkit — Analyse & Détection",
-    "category": "Malware Analysis · Kernel Security",
-    "description": "Étude des mécanismes de rootkits Linux au niveau noyau : persistance, évasion, et indicateurs de compromission utiles pour renforcer la détection côté SOC.",
-    "topics": [
-      "malware",
-      "recherche",
-      "systemes"
-    ],
-    "technologies": [
-      "C",
-      "Linux",
-      "Kernel"
-    ],
-    "url": "https://github.com/alberick-mahoussi/rootkit"
-  },
-  {
     "id": "home-lab",
-    "title": "HOEMLAB",
-    "category": "SOC · SIEM · Detection Engineering · Malware Analyse",
-    "description": "environnement complet d'entraînement SOC (Security Operations Center) intégrant SIEM, détection réseau, Active Directory, machines vulnérables et outils d'attaque.",
-    "topics": [
-      "SOC",
-      "SIEM",
-      "lab"
-    ],
-    "technologies": [
-      "AD",
-      "Wazuh",
-      "Splunk",
-      "Metasploitable",
-      "Kali",
-      "ubuntu",
-      "Pfsense",
-      "Security Onion"
-    ],
+    "title": "Home Lab SOC",
+    "category": "SOC · SIEM · Detection Engineering",
+    "description": "Environnement d'entraînement SOC complet : SIEM, détection réseau, Active Directory, machines vulnérables et outils offensifs, pour pratiquer la détection de bout en bout.",
+    "topics": ["defense", "lab"],
+    "technologies": ["Wazuh", "Splunk", "Security Onion", "pfSense", "Active Directory", "Kali"],
     "url": "https://github.com/alberick-mahoussi/HOMELAB"
   },
   {
     "id": "siem-log-monitoring-threat-detection",
     "title": "SIEM Log Monitoring & Threat Detection",
     "category": "SOC · SIEM · Detection Engineering",
-    "description": "Ingestion et analyse de logs Sysmon/Windows dans un lab Splunk. Règles de détection pour force brute, PowerShell offensif et mouvements latéraux, avec playbooks de réponse associés.",
-    "topics": [
-      "soc",
-      "outils"
-    ],
-    "technologies": [
-      "Splunk",
-      "Sysmon",
-      "Python",
-      "Sigma"
-    ],
+    "description": "Ingestion et analyse de logs Sysmon / Windows dans un lab Splunk. Règles de détection pour la force brute, le PowerShell offensif et les mouvements latéraux, avec les playbooks de réponse associés.",
+    "topics": ["defense", "outils"],
+    "technologies": ["Splunk", "Sysmon", "Sigma", "Python"],
     "url": "https://github.com/alberick-mahoussi/SIEM-Log-Monitoring-Threat-Detection"
   },
   {
     "id": "ids-deployment-packet-analysis",
     "title": "IDS Deployment & Packet Analysis",
-    "category": "Network Security · IDS · Packet Analysis",
-    "description": "Déploiement d'un IDS Snort sur un réseau de test, tuning des règles pour réduire les faux positifs, détection d'injections SQL et corrélation MITRE ATT&CK sur les PCAP capturés.",
-    "topics": [
-      "soc",
-      "lab"
-    ],
-    "technologies": [
-      "Snort",
-      "Wireshark",
-      "MITRE"
-    ],
+    "category": "Sécurité réseau · IDS · Analyse de paquets",
+    "description": "Déploiement d'un IDS Snort sur un réseau de test, réglage des règles pour réduire les faux positifs, détection d'injections SQL et corrélation MITRE ATT&CK sur les captures PCAP.",
+    "topics": ["defense", "lab"],
+    "technologies": ["Snort", "Wireshark", "MITRE ATT&CK"],
     "url": "https://github.com/alberick-mahoussi"
   },
   {
     "id": "active-directory-build-break-secure",
     "title": "Active Directory — Build, Break & Secure",
-    "category": "Active Directory · Attack & Defense",
-    "description": "Déploiement d'un lab AD complet, simulation d'attaques internes (Kerberoasting, Pass-the-Hash, DCSync), élévation de privilèges puis mise en place des contre-mesures de durcissement.",
-    "topics": [
-      "lab"
-    ],
-    "technologies": [
-      "Windows Server",
-      "PowerShell",
-      "AD"
-    ],
+    "category": "Active Directory · Attaque & Défense",
+    "description": "Déploiement d'un lab Active Directory complet, simulation d'attaques internes (Kerberoasting, Pass-the-Hash, DCSync), élévation de privilèges, puis mise en place des contre-mesures de durcissement.",
+    "topics": ["defense", "offensive", "lab"],
+    "technologies": ["Windows Server", "PowerShell", "Active Directory"],
     "url": "https://github.com/alberick-mahoussi/Active-Directory-Build-Break-Secure"
   },
   {
-    "id": "scripts-analyse-triage",
-    "title": "Scripts d'analyse & triage",
-    "category": "Outil · Automatisation",
-    "description": "Petits utilitaires en Python et Bash pour accélérer le triage d'alertes et l'analyse d'intégrité de flux — développés au fil des missions.",
-    "topics": [
-      "outils",
-      "systemes"
-    ],
-    "technologies": [
-      "Python",
-      "Bash"
-    ],
-    "url": "https://github.com/alberick-mahoussi"
-  },
-  {
-    "id": "experimentations-bas-niveau",
-    "title": "Expérimentations bas-niveau",
-    "category": "Systèmes · Rust",
-    "description": "Petits projets en Rust et C pour approfondir la gestion mémoire, la concurrence et les fondations sur lesquelles reposent la plupart des vulnérabilités systèmes.",
-    "topics": [
-      "systemes"
-    ],
-    "technologies": [
-      "Rust",
-      "C"
-    ],
-    "url": "https://github.com/alberick-mahoussi"
+    "id": "rootkit-analyse-detection",
+    "title": "Rootkit — Analyse & Détection",
+    "category": "Analyse de maliciels · Sécurité noyau",
+    "description": "Étude des mécanismes de rootkits Linux au niveau noyau : persistance, évasion et indicateurs de compromission utiles pour renforcer la détection côté SOC.",
+    "topics": ["defense", "systemes"],
+    "technologies": ["C", "Linux", "Kernel"],
+    "url": "https://github.com/alberick-mahoussi/rootkit"
   },
   {
     "id": "audit-iso-27001",
-    "title": "Audit de Conformité ISO-27001",
-    "category": "ISO 27001",
-    "description": "Audit ISO 27001 réalisé pour TechSecure Solutions, une PME fictive de 85 collaborateurs spécialisée dans l'édition de logiciels pour le secteur bancaire",
-    "topics": [
-      "ISO 27001",
-      "Audit"
-    ],
-    "technologies": [
-      "ISO 27001"
-    ],
+    "title": "Audit de conformité ISO 27001",
+    "category": "Audit · Gouvernance",
+    "description": "Audit ISO 27001 mené pour TechSecure Solutions, PME fictive de 85 collaborateurs spécialisée dans l'édition de logiciels pour le secteur bancaire : écarts, recommandations et plan de mise en conformité.",
+    "topics": ["grc"],
+    "technologies": ["ISO 27001"],
     "url": "https://github.com/alberick-mahoussi/Audit-de-Conformit-ISO-27001"
   },
   {
     "id": "analyse-risque-ebios",
-    "title": "Analyse Risque EBIOS RM",
-    "category": "EBIOS-RM",
-    "description": "analyse de risques complète menée selon la méthode EBIOS Risk Manager (EBIOS RM) de l'ANSSI sur la société fictive BIOÉNERGIE TECH — spécialiste de la fabrication de cellules et modules de batteries innovantes et de turbines mini-hydrauliques, implantée à Chambéry.\n",
-    "topics": [
-      "EBIOS-RM",
-      "Analyse de risque",
-      "ANSSI"
-    ],
-    "technologies": [
-      "EBIOS-RM"
-    ],
+    "title": "Analyse de risques EBIOS RM",
+    "category": "Analyse de risques · ANSSI",
+    "description": "Analyse de risques complète selon la méthode EBIOS Risk Manager de l'ANSSI, pour BIOÉNERGIE TECH, société fictive spécialisée dans les cellules de batteries et les turbines mini-hydrauliques.",
+    "topics": ["grc"],
+    "technologies": ["EBIOS RM", "ANSSI"],
     "url": "https://github.com/alberick-mahoussi/analyse-risque-EBIOS-RM"
+  },
+  {
+    "id": "scripts-analyse-triage",
+    "title": "Scripts d'analyse & de triage",
+    "category": "Outillage · Automatisation",
+    "description": "Petits utilitaires en Python et Bash pour accélérer le triage d'alertes et l'analyse d'intégrité des flux, développés au fil des missions et des labs.",
+    "topics": ["outils"],
+    "technologies": ["Python", "Bash"],
+    "url": "https://github.com/alberick-mahoussi"
+  },
+  {
+    "id": "experimentations-bas-niveau",
+    "title": "Expérimentations bas niveau",
+    "category": "Systèmes · Rust & C",
+    "description": "Projets en Rust et en C pour approfondir la gestion mémoire, la concurrence et les fondations sur lesquelles reposent la plupart des vulnérabilités systèmes.",
+    "topics": ["systemes"],
+    "technologies": ["Rust", "C"],
+    "url": "https://github.com/alberick-mahoussi"
   }
 ]

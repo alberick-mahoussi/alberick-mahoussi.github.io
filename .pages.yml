@@ -1,4 +1,150 @@
+media:
+  input: assets/img
+  output: assets/img
+
 content:
+  - name: site
+    label: Accueil & informations
+    type: file
+    path: data/site.json
+    format: json
+    fields:
+      - name: name
+        label: Nom affiché
+        type: string
+        required: true
+      - name: role
+        label: Intitulé de poste
+        type: string
+      - name: statement_line_1
+        label: Accroche — ligne 1
+        type: string
+        required: true
+      - name: statement_line_2
+        label: Accroche — ligne 2 (en couleur)
+        type: string
+        required: true
+      - name: tagline
+        label: Phrase de présentation (sous l'accroche)
+        type: text
+        required: true
+      - name: intro
+        label: Paragraphe d'introduction
+        type: text
+      - name: target
+        label: Recherche en cours
+        type: object
+        fields:
+          - { name: contract, label: Contrat recherché, type: string }
+          - { name: roles, label: Postes visés, type: string }
+          - { name: location, label: Localisation, type: string }
+          - { name: availability, label: Disponibilité, type: string }
+          - { name: note, label: Note, type: text }
+      - name: stats
+        label: Statistiques (accueil)
+        type: object
+        list: true
+        fields:
+          - { name: value, label: Valeur, type: string, required: true }
+          - { name: label, label: Libellé, type: string, required: true }
+      - name: links
+        label: Liens
+        type: object
+        fields:
+          - { name: email, label: Email, type: string }
+          - { name: github, label: GitHub (URL), type: string }
+          - { name: linkedin, label: LinkedIn (URL), type: string }
+          - { name: cv, label: CV (fichier ou URL), type: string }
+      - name: ctf
+        label: Plateformes CTF
+        type: object
+        list: true
+        fields:
+          - { name: platform, label: Plateforme, type: string, required: true }
+          - { name: handle, label: Pseudo, type: string }
+          - { name: detail, label: Détail, type: string }
+          - { name: url, label: URL, type: string }
+
+  - name: about
+    label: Profil
+    type: file
+    path: data/about.json
+    format: json
+    fields:
+      - name: summary
+        label: Résumé
+        type: text
+        required: true
+      - name: formations
+        label: Formations
+        type: object
+        list: true
+        fields:
+          - { name: period, label: Période, type: string, required: true }
+          - { name: title, label: Intitulé, type: string, required: true }
+          - { name: org, label: Établissement, type: string }
+          - { name: points, label: Points clés, type: string, list: true }
+      - name: experiences
+        label: Expériences
+        type: object
+        list: true
+        fields:
+          - { name: period, label: Période, type: string, required: true }
+          - { name: title, label: Poste, type: string, required: true }
+          - { name: org, label: Entreprise, type: string }
+          - { name: points, label: Missions, type: string, list: true }
+      - name: skills
+        label: Compétences techniques
+        type: object
+        list: true
+        fields:
+          - { name: group, label: Domaine, type: string, required: true }
+          - { name: items, label: Technologies, type: string, list: true }
+      - name: languages
+        label: Langues
+        type: object
+        list: true
+        fields:
+          - { name: name, label: Langue, type: string, required: true }
+          - { name: level, label: Niveau, type: string }
+      - name: qualities
+        label: Atouts
+        type: string
+        list: true
+
+  - name: certs
+    label: Certifications
+    type: file
+    path: data/certs.json
+    format: json
+    fields:
+      - name: obtained
+        label: Certifications obtenues
+        type: object
+        list: true
+        fields:
+          - { name: mark, label: Sigle (ex. ISO, THM), type: string }
+          - { name: name, label: Nom, type: string, required: true }
+          - { name: issuer, label: Organisme, type: string }
+          - { name: description, label: Description, type: text }
+      - name: in_progress
+        label: En préparation
+        type: object
+        list: true
+        fields:
+          - { name: mark, label: Sigle, type: string }
+          - { name: name, label: Nom, type: string, required: true }
+          - { name: issuer, label: Organisme, type: string }
+          - { name: description, label: Description, type: text }
+      - name: platforms
+        label: Plateformes CTF & entraînement
+        type: object
+        list: true
+        fields:
+          - { name: platform, label: Plateforme, type: string, required: true }
+          - { name: detail, label: Détail, type: string }
+          - { name: url, label: URL, type: string }
+
   - name: projects
     label: Projets
     type: file
@@ -11,7 +157,7 @@ content:
         type: string
         required: true
         pattern: "^[a-z0-9-]+$"
-        description: Identifiant unique en minuscules, utilisé pour reconnaître le projet.
+        description: Identifiant unique en minuscules.
       - name: title
         label: Nom du projet
         type: string
@@ -25,10 +171,11 @@ content:
         type: text
         required: true
       - name: topics
-        label: Topics de filtre
+        label: Filières (filtres)
         type: string
         list: true
         required: true
+        description: "Valeurs reconnues : defense, offensive, grc, systemes, lab, outils."
       - name: technologies
         label: Technologies
         type: string
@@ -36,7 +183,7 @@ content:
       - name: url
         label: Lien du projet
         type: string
-        description: URL HTTP ou HTTPS du dépôt ou de la démonstration.
+        description: URL HTTP(S) du dépôt ou de la démonstration.
 
   - name: writeups
     label: Blog / write-ups
@@ -50,7 +197,7 @@ content:
         type: string
         required: true
         pattern: "^[a-z0-9-]+$"
-        description: Identifiant unique en minuscules, utilisé dans l’URL du write-up.
+        description: Identifiant unique en minuscules, utilisé dans l'URL du write-up.
       - name: title
         label: Titre
         type: string
@@ -74,4 +221,4 @@ content:
           format: markdown
           switcher: true
           media: false
-        description: Utilise Source pour coller du Markdown brut, ou Editor pour écrire et mettre en forme. Pour un titre, écris « # Titre » avec une espace après #.
+        description: Utilise Source pour coller du Markdown brut (titres, tableaux, code, images), ou Editor pour écrire.

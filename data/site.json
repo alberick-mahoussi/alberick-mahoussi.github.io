@@ -1,0 +1,32 @@
+{
+  "name": "Alberick Mahoussi",
+  "role": "Analyste cybersécurité",
+  "statement_line_1": "Construire, casser,",
+  "statement_line_2": "sécuriser.",
+  "tagline": "Analyste cybersécurité — de la défense et du SOC à l'audit et au test d'intrusion. Un parcours de développeur mis au service de la sécurité.",
+  "intro": "J'analyse des menaces, je réponds aux incidents et je durcis des infrastructures ; je sais aussi conduire un audit de conformité ou une analyse de risques, et éprouver un système en attaquant pour mieux le défendre. Ce site rassemble mes projets, mes certifications et mes write-ups techniques.",
+  "target": {
+    "contract": "CDI",
+    "roles": "Analyste cybersécurité · SOC / Blue Team · Pentest · Audit & GRC",
+    "location": "Île-de-France",
+    "availability": "Disponible",
+    "note": "Ouvert aux missions de sécurité défensive comme offensive, et aux postes d'audit et de gouvernance."
+  },
+  "stats": [
+    { "value": "Top 2 %", "label": "Classement TryHackMe" },
+    { "value": "20 500", "label": "Points TryHackMe" },
+    { "value": "1 020", "label": "Points Root-Me" },
+    { "value": "5", "label": "Certifications obtenues" }
+  ],
+  "links": {
+    "email": "alberick.mahoussi@ecole2600.com",
+    "github": "https://github.com/alberick-mahoussi",
+    "linkedin": "https://linkedin.com/in/alberick-mahoussi",
+    "cv": "cv-alternance-analyste-cyber.pdf"
+  },
+  "ctf": [
+    { "platform": "TryHackMe", "handle": "@huen992", "detail": "Top 2 % · 20 500 pts", "url": "https://tryhackme.com/p/huen992" },
+    { "platform": "HackTheBox", "handle": "@huen992", "detail": "CDSA en préparation", "url": "https://profile.hackthebox.com/profile/019e7e2f-b3d4-716e-8dc0-5297772792fb" },
+    { "platform": "Root-Me", "handle": "@huen992", "detail": "1 020 pts", "url": "https://www.root-me.org/huen992?lang=fr" }
+  ]
+}

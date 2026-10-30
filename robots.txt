@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://rickkoussi.tech/sitemap.xml
