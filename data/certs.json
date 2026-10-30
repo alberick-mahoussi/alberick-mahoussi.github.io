@@ -48,6 +48,6 @@
   "platforms": [
     { "platform": "TryHackMe", "detail": "@huen922 · Top 2 % · 20 500 pts", "url": "https://tryhackme.com/p/huen922" },
     { "platform": "Hack The Box", "detail": "@huen992 · CDSA en préparation", "url": "https://profile.hackthebox.com/profile/019e7e2f-b3d4-716e-8dc0-5297772792fb" },
-    { "platform": "Root-Me", "detail": "@huen992 · 1 020 pts", "url": "https://www.root-me.org/huen992?lang=fr" }
+    { "platform": "Root-Me", "detail": "@huen922 · 1 020 pts", "url": "https://www.root-me.org/huen922?lang=fr" }
   ]
 }
