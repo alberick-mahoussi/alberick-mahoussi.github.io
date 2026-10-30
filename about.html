@@ -1,173 +1,53 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Profil — Alberick Mahoussi</title>
+<meta name="description" content="Parcours d'Alberick Mahoussi : formations (École 2600, EPITECH), expériences, compétences en cybersécurité défensive, offensive et gouvernance, langues.">
+<link rel="canonical" href="https://rickkoussi.tech/about.html">
+<meta name="theme-color" content="#ffffff">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<meta property="og:type" content="profile">
+<meta property="og:site_name" content="Alberick Mahoussi">
+<meta property="og:locale" content="fr_FR">
+<meta property="og:url" content="https://rickkoussi.tech/about.html">
+<meta property="og:title" content="Profil — Alberick Mahoussi">
+<meta property="og:description" content="Formations, expériences et compétences en cybersécurité : défense, offensive et gouvernance.">
+<meta property="og:image" content="https://rickkoussi.tech/assets/img/og.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
+<script>(function(){try{document.documentElement.classList.add('js');var t=localStorage.getItem('theme');if(t!=='light'&&t!=='dark'){t=matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';}document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 </head>
 <body>
+<a class="skip-link" href="#main">Aller au contenu</a>
 
-<nav>
-  <a href="index.html" class="nav-logo">alberick@soc:~$<span class="cursor"></span></a>
-  <div class="nav-links">
-    <a href="index.html">Accueil</a>
-    <a href="about.html" class="active">Profil</a>
-    <a href="projects.html">Projets</a>
-    <a href="blog.html">Blog</a>
-    <a href="certs.html">Certifications</a>
-    <a href="contact.html">Contact</a>
-    <span class="nav-divider"></span>
-    <a href="https://github.com/alberick-mahoussi" target="_blank" rel="noopener" class="icon-link" aria-label="GitHub">
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0 1 12 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/></svg>
-    </a>
-  </div>
-</nav>
+<header id="site-nav" class="nav">
+  <noscript><div class="wrap"><div class="nav-inner"><a href="index.html" class="nav-logo">Alberick Mahoussi</a><nav class="nav-links" aria-label="Navigation principale"><a href="index.html">Accueil</a><a href="projects.html">Projets</a><a href="blog.html">Blog</a><a href="certs.html">Certifications</a><a href="contact.html">Contact</a></nav></div></div></noscript>
+</header>
 
-<div class="page-header">
-  <p class="page-kicker">Parcours</p>
-  <h1 class="page-title">Profil</h1>
-  <p class="page-desc">Master 2 Cybersécurité à l'Ecole 2600, en Île-de-France. Reconversion depuis le développement logiciel vers la cyberdéfense. Recherche une alternance SOC / Blue Team dès septembre 2026.</p>
-</div>
+<main id="main">
+  <section class="page-header">
+    <div class="wrap">
+      <h1 data-reveal>Profil</h1>
+      <p class="page-desc" data-reveal>Un parcours de développeur réorienté vers la cybersécurité : défense, offensive et gouvernance.</p>
+    </div>
+  </section>
 
-<section style="border-top:none; padding-top:0;">
-  <div class="terminal">
-    <div class="terminal-bar"><span class="dot dr"></span><span class="dot dy"></span><span class="dot dg"></span><span class="terminal-title">~/whoami</span></div>
-    <div class="terminal-body">
-<span class="t-mut">$</span> cat profile.json<br>
-<span class="t-mut">{</span><br>
-&nbsp;&nbsp;<span class="t-key">"role"</span><span class="t-mut">:</span> <span class="t-val">"Blue Team Analyst"</span><span class="t-mut">,</span><br>
-&nbsp;&nbsp;<span class="t-key">"background"</span><span class="t-mut">:</span> <span class="t-val">"Développeur → Cybersécurité"</span><span class="t-mut">,</span><br>
-&nbsp;&nbsp;<span class="t-key">"school"</span><span class="t-mut">:</span> <span class="t-val">"Ecole 2600"</span><span class="t-mut">,</span><br>
-&nbsp;&nbsp;<span class="t-key">"looking_for"</span><span class="t-mut">:</span> <span class="t-val">"Alternance SOC/Blue Team · Sept. 2026"</span><span class="t-mut">,</span><br>
-&nbsp;&nbsp;<span class="t-key">"status"</span><span class="t-mut">:</span> <span class="t-val">"open_to_opportunities"</span><br>
-<span class="t-mut">}</span><span class="cursor" style="background:#67e8f9;"></span>
-    </div>
+  <p id="about-error" class="data-error" role="alert" hidden style="margin:1.5rem var(--gutter);"></p>
+  <div id="about-content">
+    <section class="block"><div class="wrap"><p class="hero-lead">Chargement du profil…</p></div></section>
   </div>
-</section>
+</main>
 
-<section>
-  <div class="section-head"><h2>Formations</h2></div>
-  <div class="timeline">
-    <div class="tl-item">
-      <div class="tl-date">Septembre 2024 — présent</div>
-      <div class="tl-title">Master Expert de la Sécurité des Données, Systèmes et Réseaux</div>
-      <div class="tl-sub">Ecole 2600 · Île-de-France · Master 2 en cours</div>
-      <ul class="tl-desc">
-        <li>Sécurité des OS et des logiciels, réseaux IT/OT/IoT</li>
-        <li>Cyberdéfense et gestion de crise</li>
-        <li>Ingénierie sociale, OSINT, analyse de malware</li>
-      </ul>
-    </div>
-    <div class="tl-item">
-      <div class="tl-date">2021 — 2024</div>
-      <div class="tl-title">Bachelor Expert en Ingénierie Logicielle</div>
-      <div class="tl-sub">EPITECH · Diplômé</div>
-      <ul class="tl-desc">
-        <li>C/C++, applications web et mobile, architectures logicielles</li>
-        <li>Méthodologie projet, CI/CD, administration Linux</li>
-      </ul>
-    </div>
-  </div>
-</section>
-
-<section>
-  <div class="section-head"><h2>Expériences</h2></div>
-  <div class="timeline">
-    <div class="tl-item exp">
-      <div class="tl-date">Octobre 2024 — présent</div>
-      <div class="tl-title">Consultant Intégrateur Logiciel</div>
-      <div class="tl-sub">Asap-Informatique · Ezanville · Alternance</div>
-      <ul class="tl-desc">
-        <li>Sécurisation d'une chaîne d'acquisition de données géolocalisées</li>
-        <li>Scripts Python pour l'analyse d'intégrité de flux IoT</li>
-        <li>Application du SDLC et remédiation de vulnérabilités</li>
-      </ul>
-    </div>
-    <div class="tl-item exp">
-      <div class="tl-date">Mars 2024 — juin 2024</div>
-      <div class="tl-title">Développeur Web</div>
-      <div class="tl-sub">CMC Trophées · Pantin · Stage</div>
-      <ul class="tl-desc">
-        <li>Modules e-commerce sécurisés (PHP), bonnes pratiques OWASP</li>
-        <li>Migration sécurisée d'un CMS WordPress</li>
-      </ul>
-    </div>
-    <div class="tl-item exp">
-      <div class="tl-date">Septembre 2023 — janvier 2024</div>
-      <div class="tl-title">Développeur Fullstack</div>
-      <div class="tl-sub">Cexci Trans Bénin · Cotonou (remote) · Temps partiel</div>
-      <ul class="tl-desc">
-        <li>API RESTful pour intégrations tierces</li>
-        <li>Authentification et protection des données utilisateurs</li>
-      </ul>
-    </div>
-    <div class="tl-item exp">
-      <div class="tl-date">Août 2022 — octobre 2024</div>
-      <div class="tl-title">Développeur Web</div>
-      <div class="tl-sub">Bolloré Transport & Logistics · Cotonou · Stage</div>
-      <ul class="tl-desc">
-        <li>Cahier des charges, modélisation base de données</li>
-        <li>Conception des modules primaires de l'application</li>
-      </ul>
-    </div>
-  </div>
-</section>
-
-<section>
-  <div class="section-head"><h2>Compétences techniques</h2></div>
-  <div class="grid grid-3">
-    <div class="card"><h3 style="font-family:var(--sans); font-size:14px; margin-bottom:8px;">SIEM & détection</h3><div class="tags"><span class="tag">Splunk</span><span class="tag">Elastic</span><span class="tag">Wazuh</span></div></div>
-    <div class="card"><h3 style="font-family:var(--sans); font-size:14px; margin-bottom:8px;">Incident response</h3><div class="tags"><span class="tag">TheHive</span><span class="tag">Cortex</span><span class="tag">MISP</span></div></div>
-    <div class="card"><h3 style="font-family:var(--sans); font-size:14px; margin-bottom:8px;">Forensic & réseau</h3><div class="tags"><span class="tag">Wireshark</span><span class="tag">Volatility</span><span class="tag">Zeek</span></div></div>
-    <div class="card"><h3 style="font-family:var(--sans); font-size:14px; margin-bottom:8px;">Scripting</h3><div class="tags"><span class="tag">Python</span><span class="tag">Bash</span><span class="tag">C/C++</span></div></div>
-    <div class="card"><h3 style="font-family:var(--sans); font-size:14px; margin-bottom:8px;">Active Directory</h3><div class="tags"><span class="tag">Kerberos</span><span class="tag">GPO</span><span class="tag">LDAP</span></div></div>
-    <div class="card"><h3 style="font-family:var(--sans); font-size:14px; margin-bottom:8px;">Web security</h3><div class="tags"><span class="tag">OWASP</span><span class="tag">Burp Suite</span><span class="tag">Metasploit</span></div></div>
-  </div>
-</section>
-
-<section>
-  <div class="section-head">
-    <h2>Certifications obtenues</h2>
-    <p>Le détail complet, avec l'avancement des certifications en cours, est sur la <a href="certs.html" style="color:var(--accent);">page Certifications</a>.</p>
-  </div>
-  <div class="carousel">
-    <div class="carousel-track">
-      <div class="carousel-item"><div class="cert-mark">ISO</div><div><div class="cert-name">ISO/IEC 27001:2022</div><div class="cert-issuer">SkillFront</div></div></div>
-      <div class="carousel-item"><div class="cert-mark">THM</div><div><div class="cert-name">SOC Level 1</div><div class="cert-issuer">TryHackMe</div></div></div>
-      <div class="carousel-item"><div class="cert-mark">THM</div><div><div class="cert-name">SOC Level 2</div><div class="cert-issuer">TryHackMe</div></div></div>
-      <div class="carousel-item"><div class="cert-mark">THM</div><div><div class="cert-name">Jr Penetration Tester</div><div class="cert-issuer">TryHackMe</div></div></div>
-      <div class="carousel-item"><div class="cert-mark">THM</div><div><div class="cert-name">Web Fundamentals</div><div class="cert-issuer">TryHackMe</div></div></div>
-      <!-- duplicated for a seamless loop -->
-      <div class="carousel-item"><div class="cert-mark">ISO</div><div><div class="cert-name">ISO/IEC 27001:2022</div><div class="cert-issuer">SkillFront</div></div></div>
-      <div class="carousel-item"><div class="cert-mark">THM</div><div><div class="cert-name">SOC Level 1</div><div class="cert-issuer">TryHackMe</div></div></div>
-      <div class="carousel-item"><div class="cert-mark">THM</div><div><div class="cert-name">SOC Level 2</div><div class="cert-issuer">TryHackMe</div></div></div>
-      <div class="carousel-item"><div class="cert-mark">THM</div><div><div class="cert-name">Jr Penetration Tester</div><div class="cert-issuer">TryHackMe</div></div></div>
-      <div class="carousel-item"><div class="cert-mark">THM</div><div><div class="cert-name">Web Fundamentals</div><div class="cert-issuer">TryHackMe</div></div></div>
-    </div>
-  </div>
-</section>
-
-<section>
-  <div class="section-head"><h2>Langues & atouts</h2></div>
-  <div style="display:flex; gap:24px; flex-wrap:wrap; margin-bottom:1.5rem;">
-    <div><strong style="font-family:var(--sans);">Français</strong><div style="color:var(--muted); font-size:12.5px;">Natif</div></div>
-    <div><strong style="font-family:var(--sans);">Anglais</strong><div style="color:var(--muted); font-size:12.5px;">B2 — professionnel</div></div>
-  </div>
-  <div class="tags">
-    <span class="tag">Curiosité</span><span class="tag">Autonomie</span><span class="tag">Esprit d'équipe</span>
-    <span class="tag">Vision architecte</span><span class="tag">Dev mindset → défense</span>
-  </div>
-</section>
-
-<footer>
-  <div class="footer-row">
-    <div class="footer-links">
-      <a href="index.html">Accueil</a><a href="about.html">Profil</a><a href="projects.html">Projets</a>
-      <a href="blog.html">Blog</a><a href="certs.html">Certifications</a><a href="contact.html">Contact</a>
-    </div>
-    <div class="footer-note"><span>alberick-mahoussi</span> · 2025</div>
-  </div>
+<footer id="site-footer" class="footer">
+  <noscript><div class="wrap"><div class="footer-name">Alberick Mahoussi</div></div></noscript>
 </footer>
 
+<script type="module" src="assets/js/site.js"></script>
+<script type="module" src="assets/js/about.js"></script>
 </body>
 </html>

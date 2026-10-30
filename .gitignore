@@ -1,0 +1,6 @@
+.claude
+node_modules/
+.taste-skill/
+playwright-report/
+test-results/
+.impeccable/

@@ -1,0 +1,53 @@
+{
+  "obtained": [
+    {
+      "mark": "ISO",
+      "name": "ISO/IEC 27001:2022 Information Security Associate",
+      "issuer": "SkillFront",
+      "description": "Fondamentaux du SMSI, contrôles de sécurité, gestion des risques et conformité RGPD."
+    },
+    {
+      "mark": "THM",
+      "name": "SOC Level 1",
+      "issuer": "TryHackMe · @huen992",
+      "description": "Triage d'alertes, investigation de logs, outils SOC (SIEM, EDR) et escalade."
+    },
+    {
+      "mark": "THM",
+      "name": "SOC Level 2",
+      "issuer": "TryHackMe · @huen992",
+      "description": "Threat hunting avancé, analyse de maliciels, forensic et réponse à incidents complexes."
+    },
+    {
+      "mark": "THM",
+      "name": "Jr Penetration Tester",
+      "issuer": "TryHackMe · @huen992",
+      "description": "Méthodologie de test d'intrusion, reconnaissance, exploitation web et rédaction de rapports."
+    },
+    {
+      "mark": "THM",
+      "name": "Web Fundamentals",
+      "issuer": "TryHackMe · @huen992",
+      "description": "HTTP/S, injections SQL, XSS, CSRF, authentification et OWASP."
+    }
+  ],
+  "in_progress": [
+    {
+      "mark": "HTB",
+      "name": "Certified Defensive Security Analyst (CDSA)",
+      "issuer": "Hack The Box Academy",
+      "description": "Analyse défensive, investigation d'incidents avancée et threat hunting sur outils entreprise."
+    },
+    {
+      "mark": "CWL",
+      "name": "Certified Cyber Security Analyst",
+      "issuer": "CyberWarfare Labs",
+      "description": "Analyse opérationnelle, gestion des APT et opérations SOC."
+    }
+  ],
+  "platforms": [
+    { "platform": "TryHackMe", "detail": "@huen992 · Top 2 % · 20 500 pts", "url": "https://tryhackme.com/p/huen992" },
+    { "platform": "Hack The Box", "detail": "@huen992 · CDSA en préparation", "url": "https://profile.hackthebox.com/profile/019e7e2f-b3d4-716e-8dc0-5297772792fb" },
+    { "platform": "Root-Me", "detail": "@huen992 · 1 020 pts", "url": "https://www.root-me.org/huen992?lang=fr" }
+  ]
+}

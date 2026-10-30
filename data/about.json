@@ -1,0 +1,78 @@
+{
+  "summary": "Développeur de formation (EPITECH), je me suis réorienté vers la cybersécurité et prépare un Master 2 à l'École 2600, en Île-de-France. Ce double bagage — concevoir des logiciels puis apprendre à les attaquer et à les défendre — me permet d'intervenir aussi bien côté défense (SOC, réponse à incident, durcissement) que côté offensive (test d'intrusion) ou gouvernance (audit, analyse de risques).",
+  "formations": [
+    {
+      "period": "Septembre 2024 — en cours",
+      "title": "Master — Expert de la sécurité des données, systèmes et réseaux",
+      "org": "École 2600 · Île-de-France",
+      "points": [
+        "Sécurité des systèmes d'exploitation et des logiciels, réseaux IT / OT / IoT",
+        "Cyberdéfense, gestion de crise et réponse à incident",
+        "Ingénierie sociale, OSINT et analyse de maliciels",
+        "Audit, conformité (ISO 27001) et analyse de risques (EBIOS RM)"
+      ]
+    },
+    {
+      "period": "2021 — 2024",
+      "title": "Bachelor — Expert en ingénierie logicielle",
+      "org": "EPITECH · Diplômé",
+      "points": [
+        "C / C++, applications web et mobile, architectures logicielles",
+        "Méthodologie projet, CI/CD et administration Linux"
+      ]
+    }
+  ],
+  "experiences": [
+    {
+      "period": "Octobre 2024 — en cours",
+      "title": "Consultant intégrateur logiciel",
+      "org": "Asap-Informatique · Ézanville · Alternance",
+      "points": [
+        "Sécurisation d'une chaîne d'acquisition de données géolocalisées",
+        "Scripts Python pour l'analyse d'intégrité de flux IoT",
+        "Application du cycle de développement sécurisé et remédiation de vulnérabilités"
+      ]
+    },
+    {
+      "period": "Mars 2024 — juin 2024",
+      "title": "Développeur web",
+      "org": "CMC Trophées · Pantin · Stage",
+      "points": [
+        "Modules e-commerce sécurisés (PHP), bonnes pratiques OWASP",
+        "Migration sécurisée d'un CMS WordPress"
+      ]
+    },
+    {
+      "period": "Septembre 2023 — janvier 2024",
+      "title": "Développeur fullstack",
+      "org": "Cexci Trans Bénin · Cotonou (à distance) · Temps partiel",
+      "points": [
+        "API RESTful pour des intégrations tierces",
+        "Authentification et protection des données utilisateurs"
+      ]
+    },
+    {
+      "period": "Août 2022 — octobre 2024",
+      "title": "Développeur web",
+      "org": "Bolloré Transport & Logistics · Cotonou · Stage",
+      "points": [
+        "Cahier des charges et modélisation de base de données",
+        "Conception des modules primaires de l'application"
+      ]
+    }
+  ],
+  "skills": [
+    { "group": "SIEM & détection", "items": ["Splunk", "Elastic", "Wazuh", "Sigma"] },
+    { "group": "Réponse à incident", "items": ["TheHive", "Cortex", "MISP"] },
+    { "group": "Forensic & réseau", "items": ["Wireshark", "Volatility", "Zeek", "Snort"] },
+    { "group": "Test d'intrusion", "items": ["Burp Suite", "Metasploit", "Nmap", "OWASP"] },
+    { "group": "Audit & gouvernance", "items": ["ISO 27001", "EBIOS RM", "ANSSI"] },
+    { "group": "Active Directory", "items": ["Kerberos", "GPO", "LDAP"] },
+    { "group": "Scripting & systèmes", "items": ["Python", "Bash", "C / C++", "Rust", "Linux"] }
+  ],
+  "languages": [
+    { "name": "Français", "level": "Natif" },
+    { "name": "Anglais", "level": "B2 — professionnel" }
+  ],
+  "qualities": ["Curiosité", "Autonomie", "Esprit d'équipe", "Vision architecte", "Rigueur"]
+}
