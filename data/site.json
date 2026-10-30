@@ -25,8 +25,8 @@
     "cv": "cv-alternance-analyste-cyber.pdf"
   },
   "ctf": [
-    { "platform": "TryHackMe", "handle": "@huen922", "detail": "Top 2 % · 20 500 pts", "url": "https://tryhackme.com/p/huen922" },
+    { "platform": "TryHackMe", "handle": "@huen992", "detail": "Top 2 % · 20 500 pts", "url": "https://tryhackme.com/p/huen992" },
     { "platform": "HackTheBox", "handle": "@huen992", "detail": "CDSA en préparation", "url": "https://profile.hackthebox.com/profile/019e7e2f-b3d4-716e-8dc0-5297772792fb" },
-    { "platform": "Root-Me", "handle": "@huen922", "detail": "1 020 pts", "url": "https://www.root-me.org/huen922?lang=fr" }
+    { "platform": "Root-Me", "handle": "@huen992", "detail": "1 020 pts", "url": "https://www.root-me.org/huen992?lang=fr" }
   ]
 }
