@@ -127,6 +127,7 @@ content:
           - { name: name, label: Nom, type: string, required: true }
           - { name: issuer, label: Organisme, type: string }
           - { name: description, label: Description, type: text }
+          - { name: url, label: Lien du certificat (page de vérification), type: string }
       - name: in_progress
         label: En préparation
         type: object
@@ -136,6 +137,7 @@ content:
           - { name: name, label: Nom, type: string, required: true }
           - { name: issuer, label: Organisme, type: string }
           - { name: description, label: Description, type: text }
+          - { name: url, label: Lien du certificat (page de vérification), type: string }
       - name: platforms
         label: Plateformes CTF & entraînement
         type: object

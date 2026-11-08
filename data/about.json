@@ -1,5 +1,5 @@
 {
-  "summary": "Développeur de formation (EPITECH), je me suis réorienté vers la cybersécurité et prépare un Master 2 à l'École 2600, en Île-de-France. Ce double bagage — concevoir des logiciels puis apprendre à les attaquer et à les défendre — me permet d'intervenir aussi bien côté défense (SOC, réponse à incident, durcissement) que côté offensive (test d'intrusion) ou gouvernance (audit, analyse de risques).",
+  "summary": "Développeur de formation (EPITECH), je me suis réorienté vers la cybersécurité défensive et prépare un Master 2 à l'École 2600, en Île-de-France. Mon cœur de métier est la Blue Team : SOC, détection, réponse à incident et durcissement. Je le complète par la gouvernance (audit, analyse de risques) et l'offensive (test d'intrusion), qui m'aident à prioriser les risques et à penser comme l'attaquant que je dois détecter.",
   "formations": [
     {
       "period": "Septembre 2024 — en cours",
@@ -62,17 +62,83 @@
     }
   ],
   "skills": [
-    { "group": "SIEM & détection", "items": ["Splunk", "Elastic", "Wazuh", "Sigma"] },
-    { "group": "Réponse à incident", "items": ["TheHive", "Cortex", "MISP"] },
-    { "group": "Forensic & réseau", "items": ["Wireshark", "Volatility", "Zeek", "Snort"] },
-    { "group": "Test d'intrusion", "items": ["Burp Suite", "Metasploit", "Nmap", "OWASP"] },
-    { "group": "Audit & gouvernance", "items": ["ISO 27001", "EBIOS RM", "ANSSI"] },
-    { "group": "Active Directory", "items": ["Kerberos", "GPO", "LDAP"] },
-    { "group": "Scripting & systèmes", "items": ["Python", "Bash", "C / C++", "Rust", "Linux"] }
+    {
+      "group": "SIEM & détection",
+      "items": [
+        "Splunk",
+        "Elastic",
+        "Wazuh",
+        "Sigma"
+      ]
+    },
+    {
+      "group": "Réponse à incident",
+      "items": [
+        "TheHive",
+        "Cortex",
+        "MISP"
+      ]
+    },
+    {
+      "group": "Forensic & réseau",
+      "items": [
+        "Wireshark",
+        "Volatility",
+        "Zeek",
+        "Snort"
+      ]
+    },
+    {
+      "group": "Active Directory",
+      "items": [
+        "Kerberos",
+        "GPO",
+        "LDAP"
+      ]
+    },
+    {
+      "group": "Audit & gouvernance",
+      "items": [
+        "ISO 27001",
+        "EBIOS RM",
+        "ANSSI"
+      ]
+    },
+    {
+      "group": "Test d'intrusion",
+      "items": [
+        "Burp Suite",
+        "Metasploit",
+        "Nmap",
+        "OWASP"
+      ]
+    },
+    {
+      "group": "Scripting & systèmes",
+      "items": [
+        "Python",
+        "Bash",
+        "C / C++",
+        "Rust",
+        "Linux"
+      ]
+    }
   ],
   "languages": [
-    { "name": "Français", "level": "Natif" },
-    { "name": "Anglais", "level": "B2 — professionnel" }
+    {
+      "name": "Français",
+      "level": "Natif"
+    },
+    {
+      "name": "Anglais",
+      "level": "B2 — professionnel"
+    }
   ],
-  "qualities": ["Curiosité", "Autonomie", "Esprit d'équipe", "Vision architecte", "Rigueur"]
+  "qualities": [
+    "Curiosité",
+    "Autonomie",
+    "Esprit d'équipe",
+    "Vision architecte",
+    "Rigueur"
+  ]
 }

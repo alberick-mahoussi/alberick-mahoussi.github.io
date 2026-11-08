@@ -153,24 +153,13 @@ async function buildFooter() {
   );
 }
 
-/* ---- reveal on scroll (element-based, idempotent, re-callable) ---- */
-let revealObserver = null;
+/* ---- reveal: one short fade-in when content arrives (idempotent, re-callable) ---- */
+// No scroll trigger: content below the fold must never sit invisible waiting for an observer.
 export function initReveal(scope = document) {
   const nodes = scope.querySelectorAll("[data-reveal]:not([data-revealed])");
   if (!nodes.length) return;
-  const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-  if (reduce || !("IntersectionObserver" in window)) {
-    nodes.forEach((n) => { n.setAttribute("data-revealed", ""); n.classList.add("is-in"); });
-    return;
-  }
-  if (!revealObserver) {
-    revealObserver = new IntersectionObserver((entries) => {
-      entries.forEach((e) => {
-        if (e.isIntersecting) { e.target.classList.add("is-in"); revealObserver.unobserve(e.target); }
-      });
-    }, { threshold: 0.1, rootMargin: "0px 0px -6% 0px" });
-  }
-  nodes.forEach((n) => { n.setAttribute("data-revealed", ""); revealObserver.observe(n); });
+  nodes.forEach((n) => n.setAttribute("data-revealed", ""));
+  requestAnimationFrame(() => nodes.forEach((n) => n.classList.add("is-in")));
 }
 
 /* ---- boot ---- */

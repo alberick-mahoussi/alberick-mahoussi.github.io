@@ -7,12 +7,15 @@ const errorEl = document.getElementById("project-error");
 
 const TOPIC_LABELS = {
   defense: "Défense / Blue Team",
-  offensive: "Offensive / Pentest",
   grc: "Audit & GRC",
+  offensive: "Offensive / Pentest",
   systemes: "Systèmes",
   lab: "Labs",
   outils: "Outillage",
 };
+
+// Filter order follows the positioning: defense first, complements after, unknown topics last.
+const rank = (t) => { const i = Object.keys(TOPIC_LABELS).indexOf(t); return i < 0 ? 99 : i; };
 
 function applyFilter(topic) {
   let visible = 0;
@@ -26,7 +29,7 @@ function applyFilter(topic) {
 
 function renderFilters(projects) {
   const topics = [...new Set(projects.flatMap((p) => p.topics || []))]
-    .sort((a, b) => (TOPIC_LABELS[a] || a).localeCompare(TOPIC_LABELS[b] || b, "fr"));
+    .sort((a, b) => rank(a) - rank(b) || a.localeCompare(b, "fr"));
   filtersEl.innerHTML = "";
 
   const all = el("button", { type: "button", class: "chip active", "data-filter": "all", "aria-pressed": "true" }, [

@@ -15,6 +15,9 @@ function certCard(c, state) {
     c.issuer ? el("p", { style: "color:var(--muted);font-size:var(--step-small);", text: c.issuer }) : null,
     pill,
     c.description ? el("p", { text: c.description }) : null,
+    c.url ? el("div", { class: "foot" }, [
+      el("a", { class: "repo-link", href: c.url, target: "_blank", rel: "noopener", text: "Voir le certificat ↗", "aria-label": `Voir le certificat ${c.name} (nouvel onglet)` }),
+    ]) : null,
   ]);
 }
 
