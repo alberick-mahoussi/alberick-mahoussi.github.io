@@ -1,11 +1,12 @@
 # Portfolio — Alberick Mahoussi
 
-Portfolio professionnel d'Alberick Mahoussi, **analyste cybersécurité polyvalent**
-(défense / SOC, test d'intrusion, audit & gouvernance). Site statique servi par
+Portfolio professionnel d'Alberick Mahoussi, **analyste cybersécurité Blue Team**
+(SOC, détection, réponse à incident), avec des compétences complémentaires en
+audit & gouvernance et en test d'intrusion. Site statique servi par
 GitHub Pages sur **rickkoussi.tech**, en français, sans serveur ni base de données.
 
-Recherche : **CDI**. Le positionnement ne cible pas une seule filière : il met en
-avant des compétences sur plusieurs domaines de la cybersécurité.
+Recherche : **CDI**. Le positionnement est défensif : la GRC et la Red Team sont
+présentées comme des compléments qui renforcent le profil Blue Team.
 
 ## Architecture
 
@@ -19,7 +20,7 @@ Site statique HTML / CSS / JavaScript (modules ES, sans étape de build). Le con
 | `projects.html` | Grille des projets avec filtres par filière. |
 | `blog.html` | Liste des write-ups et rendu d'un article (`?article=<id>`). |
 | `certs.html` | Certifications obtenues / en préparation et plateformes CTF. |
-| `contact.html` | Recherche en cours, contacts, CTF et CV. |
+| `contact.html` | Recherche en cours, contacts et CTF. Le bloc CV s'affiche seulement si `links.cv` est renseigné dans `data/site.json`. |
 | `404.html` | Page d'erreur. |
 | `styles.css` | Styles partagés, thème clair/sombre, rendu Markdown. |
 | `assets/js/site.js` | Coquille commune : nav, pied de page, thème, animations. |

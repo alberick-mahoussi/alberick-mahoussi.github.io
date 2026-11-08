@@ -75,6 +75,7 @@ function requireFields(file, obj, fields, where = "") {
   });
   [...(d.obtained || []), ...(d.in_progress || [])].forEach((c, i) => {
     if (!isStr(c.name)) err(file, `certification #${i + 1} : "name" requis`);
+    if (c.url && c.url.trim() && !isUrl(c.url)) err(file, `certification "${c.name}" : url invalide (${c.url})`);
   });
   (d.platforms || []).forEach((p, i) => {
     if (!isStr(p.platform)) err(file, `platforms[${i}] : "platform" requis`);
